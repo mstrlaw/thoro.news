@@ -1,0 +1,10 @@
+.chart-wrapper{
+  position: relative; 
+  &.h-150{
+    height: 150px;
+    margin-top: -20px;
+  }
+  &.h-450{
+    height: 450px;
+  }
+}

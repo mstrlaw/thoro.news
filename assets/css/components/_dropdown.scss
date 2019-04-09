@@ -1,0 +1,10 @@
+.dropdown{
+  .dropdown-menu{
+    z-index: 100;
+
+    .dropdown-item{
+      display: flex;
+      align-items: center;
+    }
+  }
+}

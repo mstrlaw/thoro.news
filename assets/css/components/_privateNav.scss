@@ -1,0 +1,110 @@
+.nav-wrapper{
+  position: absolute;
+  
+  transform: translateX(-100vw);
+  z-index: -1;
+  
+  &.show-nav{
+    width: 100%;
+    height: 100vh;
+    transform: translateX(0);
+    z-index: 1;
+    .menu-nav{
+      opacity: 1;
+      transform: translate3d(0px, 0px, 0);
+      transition: opacity .2s, transform .2s;
+    }
+  }
+
+  .menu-nav{
+    position: absolute;
+    top: 3rem;
+    left: 3.4em;
+    z-index: 1000;
+    opacity: 0;
+    transform: translate3d(-15px, -15px, 0);
+    transition: opacity .2s, transform .2s;
+
+    .navbar-menu{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: $gray-light;
+      height: 100%;
+      width: 250px;
+      padding: 15px;
+      border-radius: 4px;
+      overflow: hidden;
+      @include shadow-no-hover();
+
+      .navbar-item{
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        color: $dark;
+
+        .mdi{
+          display: none;
+        }
+
+        &:hover{
+          text-decoration: underline;
+        }
+        &.nuxt-link-exact-active{
+          .mdi{
+            display: inline-block;
+          }
+        }
+      }
+
+    }
+
+    .section-wrapper{
+      &:hover{
+        .sub-menu{
+          opacity: 1;
+          transform: translateX(0px);
+          transition: opacity .2s, transform .2s;
+          transition-delay: .3s;
+          z-index: 2000;
+        }
+      }
+      .sub-menu{
+        // display: none;
+        position: absolute;
+        margin-top: -50px;
+        left: 150px;
+        opacity: 0;
+        transform: translateX(-15px);
+        transition: opacity .1s, transform .1s;
+        z-index: -1;
+        width: 220px;
+
+        .navbar-menu{
+          width: auto;
+        }
+
+      }
+    }
+
+
+    .bottom-menu{
+      width: 100%;
+
+      .navbar-item{
+        justify-content: flex-start;
+        .mdi{
+          display: block;
+        }
+      }
+
+      .footer-link{
+        padding: 0.5rem 0.75rem;
+        &.center{
+          text-align: center;
+        }
+      }
+    }
+
+  }
+}

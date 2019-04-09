@@ -1,0 +1,129 @@
+.tool-bar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 3.25rem;
+  background: $gray-dark;
+  filter: blur(0);
+  transition: filter .2s;
+  z-index: 99;
+
+  .inner-section{
+    display: flex;
+    justify-content: flex-start;
+    height: 2.60rem;
+    margin: 5px;
+    padding: 3px;
+    background: $gray-light;
+
+    .search-field{
+      width: 100%;
+      position: relative;
+      left: 0;
+      z-index: 100;
+      padding: 0 3px 0 9px;
+      &.has-query{
+        position: absolute;
+        .control.has-icons-left, input{
+          width: inherit;
+        }
+      }
+      input{
+        background: $gray-light;
+        border: 0;
+        box-shadow: none;
+        width: 100px;
+      }
+      .button{
+        border: none;
+        background: $gray-light;
+      }
+      @media #{$small} {
+        display: none;
+      }
+    }
+
+    .control{
+      margin: 0 5px 0 0;
+      .logo{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .logo-wrapper{
+          width: 35px;
+          height: 100%;
+          padding: 5px;
+          margin: 1px 5px;
+        }
+      }
+    }
+    .menu-toggle{
+      @media #{$small} {
+        b{
+          display: none;
+        }
+      }
+    }
+
+    .breadcrumb{
+      padding-bottom: calc(0.375em - 1px);
+      padding-left: 0.75em;
+      padding-right: 0.75em;
+      padding-top: calc(0.375em - 1px);
+    }
+
+    .ux-controls{
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+
+  .search-results{
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: $gray-light;
+    padding: 15px 15px 60px 15px;
+    overflow: auto;
+
+    .result-stats{
+      padding: 0 5px;
+      border-bottom: 1px solid $gray-dark;
+      margin-bottom: 10px;
+
+      > {
+        font-weight: 600;
+      }
+    }
+
+    .result{
+      background: $gray-trans;
+      padding: 5px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      &:hover{
+        background: $gray-lighter;
+      }
+    }
+
+    // @media #{$medium} {
+    //   padding-left: 15px
+    // }
+        
+
+    &.visible{
+      display: block;
+    }
+  }
+
+  // @media #{$medium} {
+  //   padding-left: 47px
+  // }
+
+  
+}

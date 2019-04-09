@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+/*
+  Colors
+*/
+$blue:                      #383aa7 !default;
+$blue-trans:                rgba(56, 58, 167, .5) !default;
+$blue-dark:                 #26276f !default;
+$red:                       #e0420e !default;
+$yellow:                    #f9d857 !default;
+$green:                     #026751 !default;
+$pink:                      #ffbbb2 !default;
+
+$white:                     #FFF !default;
+$black:                     #4A4A4A !default;
+$dark:                      #363636 !default;
+$dark-trans:                rgba(54, 54, 54, .9) !default;
+$gray-trans:                rgba(239, 239, 239, 0.3) !default
+$gray-light:                #FAFAFA !default;
+$gray-lighter:              #EEEEEE !default;
+$gray-dark:                 #DDDDDD !default;
+$gray-darker:               #AAAAAA !default;
+$gray-darker-trans:         rgba(170, 170, 170, .9) !default
+
+$primary:                   $blue;
+
+/*
+  Fonts
+*/
+$font-family:               'Source Sans Pro', sans-serif;
+$brand-font:                'Comfortaa', cursive;
+/*
+  LAYOUT SIZING
+*/
+$dashboard-left-padding-desktop:    15vw !default;
+/*
+  MEDIA SIZES
+*/
+$xsmall-size: 480px;
+$small-size: 768px;
+$medium-size: 990px;
+$large-size: 1200px;
+$xlarge-size: 1201px;
+/*
+  MEDIA QUERIES
+*/
+$xsmall:    "only screen and (max-width : "+ $xsmall-size +")";
+$small:     "only screen and (max-width : "+ $small-size +")";
+$medium:    "only screen and (max-width : "+ $medium-size +")";
+$large:     "only screen and (max-width : "+ $large-size +")";
+$xlarge:     "only screen and (min-width : "+ $xlarge-size +")";
+/* Rewrite Bulma sizes */
+$gap: 0px;
+$tablet:  $small-size;
+$desktop:  $medium-size;
+$widescreen:  $large-size;
+$fullhd: $xlarge-size;
+$fullhd-enabled: true;

@@ -1,0 +1,112 @@
+.marquee-container{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 5px;
+}
+
+.socker-status{
+  position: absolute;
+  margin-top: 2px;
+  z-index: 1;
+  &.connecting{
+    .button{
+      display: block;
+      &:after{
+        border: 2px solid $gray-dark;
+        border-right-color: transparent;
+        border-top-color: transparent;
+      }
+    }
+  }
+  &.error{
+    .button{
+      display: block;
+      &:after{
+        border: 2px solid #e67d7d;
+        border-right-color: transparent;
+        border-top-color: transparent;
+      }
+    }
+  }
+  &.reconnect{
+    .button{
+      display: block;
+      &:after{
+        border: 2px solid $yellow;
+        border-right-color: transparent;
+        border-top-color: transparent;
+      }
+    }
+  }
+  .button{
+    display: none;
+    border: none;
+  }
+}
+
+.marquee-wrap{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 2.5rem;
+  background-color: transparent;
+  border-top: 1px solid $gray-dark;
+  border-bottom: 1px solid $gray-dark;
+  padding-left: 100%;
+  box-sizing: content-box;
+  
+  .marquee{
+    display: inline-block;
+    box-sizing: content-box;
+    height: 2.5rem;
+    white-space: nowrap;
+    padding-right: 100%;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: marquee-scroll;
+    animation-name: marquee-scroll;
+    -webkit-animation-duration: 60s;
+    animation-duration: 60s;
+    
+    &:hover{
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+    }
+
+    .item{
+      display: inline-block;
+      padding: .5rem 1rem;
+      color: $dark;
+    }
+  }
+
+}
+
+
+@-webkit-keyframes marquee-scroll{
+  0%{
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100%{
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes marquee-scroll{
+  0%{
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100%{
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}

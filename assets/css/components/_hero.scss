@@ -1,0 +1,32 @@
+.hero{
+  position: relative;
+  overflow: hidden;
+  &.is-main{
+    padding-top: 10%;
+    &:after{
+      content: ' ';
+      position: absolute;
+      top: 0;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGUlEQVQIW2NkYGD4z8DAwMiABFA4MHEKBQFmoAEGdnHj3wAAAABJRU5ErkJggg==);
+      background-repeat: repeat; 
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.is-pink{
+    background: $pink;
+    color: $white;
+  }
+  .hero-body{
+    z-index: 10;
+  }
+  // svg{
+  //   position: absolute;
+  //   z-index: 1;
+  //   &.chart{
+  //     position: relative;
+  //   }
+  // }
+}

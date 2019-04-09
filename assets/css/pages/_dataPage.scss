@@ -1,0 +1,10 @@
+.data-page{
+  .actions{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .action{
+      margin-left: 5px;
+    }
+  }
+}

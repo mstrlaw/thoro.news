@@ -1,0 +1,8 @@
+.gitignore
+.idea
+.env
+.nuxt
+.storybook
+npm-debug.log
+dist
+static/scripts/*.js

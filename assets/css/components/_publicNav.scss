@@ -1,0 +1,107 @@
+.navbar{
+  
+  
+
+  &.public-nav{
+    background: $white;
+    @include shadow-no-hover();
+    transition: padding .5s, background .5s;
+  
+    .navbar-burger{
+      border-radius: 50%;
+      color: $primary;
+    }
+
+    .navbar-brand{
+      font-family: $brand-font;
+      font-size: 1.6em;
+      align-items: center;
+
+      .navbar-item{
+        transform: translateX(0px);
+        transition: transform .5s;
+      }
+
+      .logo-wrapper{
+        margin-right: 10px;
+        transform: translateX(0px);
+        opacity: 1;
+        transition: transform .5s, opacity .5s;
+        img{
+          max-height: 100%;
+        }
+      }
+    }
+
+    .navbar-item, .navbar-link, .nav-link{
+      color: $primary;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  
+    &.expanded:not(.is-active){
+      padding: 25px;
+      background: transparent;
+      box-shadow: none;
+      transition: padding .5s, background .2s;
+
+      &:hover{
+        box-shadow: none!important;
+      }
+
+      .navbar-item, .navbar-link, .nav-link{
+        color: $white;
+      }
+
+      .navbar-burger{
+        color: $white;
+      }
+
+      .navbar-brand{
+        .navbar-item{
+          transform: translateX(-80px);
+          transition: transform .5s;
+        }
+        .logo-wrapper{
+          transform: translateX(-80px);
+          opacity: 0;
+          transition: transform .5s, opacity .5s;
+        }
+      }
+      
+      .navbar-menu{
+        background: transparent;
+        .navbar-item{
+          .nav-link{
+            color: $white;
+            text-decoration: none;
+            transition: background .2s, color .2s;
+          }
+          &:hover{
+            .nav-link{
+              color: $black;
+              background: darken($gray-light, 5%);
+              transition: background .2s, color .2s;
+              @include shadow()
+            }
+          }
+        }
+      }
+    }
+
+    .navbar-menu{
+      justify-content: flex-end;
+    }
+  }
+
+  @media #{$medium} {
+    &:not(.expanded){
+      .navbar-brand{
+        padding: 17px 0 10px 8px
+      }
+    }
+    .navbar-burger{
+      margin-right: 8px;
+    }
+  }
+}

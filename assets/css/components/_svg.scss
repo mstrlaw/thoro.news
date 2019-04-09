@@ -1,0 +1,180 @@
+.mdi{
+  height: 1rem;
+}
+
+.logo-wrapper{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  background: $gray-dark;
+  padding: 0;
+  border-radius: 4px;
+  &.no-bg{
+    background: transparent;
+  }
+  .svg-logo, img{
+    height: 80%;
+    max-height: 100%;
+  }
+}
+
+.feature-icon{
+  width: 100px;
+  display: inline-flex;
+  svg{
+    position: relative;  
+    width: inherit;
+  }
+
+  &.clock{
+    .pointers{
+      transform-origin: center center;
+      animation: rotate 25s infinite;
+      animation-timing-function: linear;
+    }
+    .inner-clock{
+      fill: $pink;
+    }
+  }
+
+  &.head{
+    .path{
+      animation: pulse-green 4s infinite;
+    }
+  }
+
+  &.data{
+    .bulb{
+      fill: $yellow;
+    }
+    .bulb{
+      animation: pulse-yellow 2s infinite;
+      // animation-delay: 2s;
+      &.two{
+        animation: pulse-yellow 3s infinite;
+        animation-delay: 3s;
+      }
+      &.three{
+        animation: pulse-yellow 5s infinite;
+        animation-delay: 5s;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-green {
+  0% {
+    fill: darken($green, 15%);
+  }
+  50% {
+    fill: lighten($green, 8%);
+  }
+  100% {
+    fill: darken($green, 15%);
+  }
+}
+
+@keyframes pulse-yellow {
+  0% {
+    fill: darken($yellow, 30%);
+  }
+  20% {
+    fill: lighten($yellow, 5%);
+  }
+  100% {
+    fill: darken($yellow, 30%);
+  }
+}
+
+.scatter{
+  height: 100%;
+  width: auto;
+  .triangle{
+    fill: lighten($green, 10%);
+  }
+  .square{
+    fill: lighten($blue, 10%);
+  }
+  .circle{
+    fill: darken($pink, 10%);
+  }
+}
+
+.wave-wrapper{
+  position: relative;
+
+  &.invertedX{
+    position: relative;
+    transform: scaleX(-1);
+
+    .bottom-overlayer{
+      margin-top: -10px;
+    }
+  }
+
+  &.invertedY{
+    position: relative;
+    transform: rotate(180deg) scaleX(-1);
+    padding-top: 60px;
+
+    .bottom-overlayer{
+      margin-top: -10px;
+    }
+  }
+
+  &.pink{
+    .wave-item{
+      fill: $pink;
+    }
+    .bottom-overlayer{
+      background: $pink;
+    }
+  }
+  &.yellow{
+    .wave-item{
+      fill: $yellow;
+    }
+    .bottom-overlayer{
+      background: $yellow;
+    }
+  }
+  &.gray{
+    .wave-item{
+      fill: $gray-light;
+    }
+    .bottom-overlayer{
+      background: $gray-light;
+    }
+  }
+  &.blue{
+    .wave-item{
+      fill: $primary;
+    }
+    .bottom-overlayer{
+      background: $primary;
+    }
+  }
+
+  .wave-item{
+    position: absolute;
+    bottom: 0;
+    fill: $white;
+    -webkit-filter: drop-shadow( -5px 0px 8px rgba(0,0,0,.4) ); 
+                filter: drop-shadow( -5px 0px 8px rgba(0,0,0,.4) );
+  }
+
+  .bottom-overlayer{
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    background: $white;
+    margin-top: -5px;
+  }
+}

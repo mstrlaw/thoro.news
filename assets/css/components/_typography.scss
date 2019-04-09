@@ -1,0 +1,207 @@
+$link-shadow-top: -.4em;
+$link-shadow-bottom: -.2em;
+$link-opacity-top: .1;
+$link-opacity-bottom: .1;
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2.5rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+a{
+  color: inherit;
+  transition: color .2s;
+  &:hover{
+    color: $info;
+    transition: color .2s;
+  }
+}
+
+a, .is-link{
+  color: inherit;
+  transition: color .2s;
+  &:hover{
+    color: $info;
+    transition: color .2s;
+  }
+}
+
+.is-link{
+  &:hover{
+    color: $info!important;
+  }
+}
+
+.highlighted{
+  display: inline;
+  padding: 0 2px;
+  text-decoration: none;
+
+  &.solid-block{
+    &.skewed{
+      display: block;
+      line-height: 1.3em;
+      &:before{
+        display: initial;
+        line-height: 1.3em;
+      }
+    }
+  }
+
+  &.link{
+    transition: box-shadow .5s;
+    &.center-flex{
+      display: inline-flex;
+      align-items: center;
+    }
+    &.blue{
+      -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue, $link-opacity-top);
+      -moz-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue, $link-opacity-top);
+      box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue, $link-opacity-top);
+    }
+    &.green{
+      -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($green, $link-opacity-top);
+      -moz-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($green, $link-opacity-top);
+      box-shadow: inset 0px $link-shadow-top 0px 0px rgba($green, $link-opacity-top);
+    }
+    &.pink{
+      -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($pink, $link-opacity-top);
+      -moz-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($pink, $link-opacity-top);
+      box-shadow: inset 0px $link-shadow-top 0px 0px rgba($pink, $link-opacity-top);
+    }
+    &.red{
+      -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($red, $link-opacity-top);
+      -moz-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($red, $link-opacity-top);
+      box-shadow: inset 0px $link-shadow-top 0px 0px rgba($red, $link-opacity-top);
+    }
+    &.yellow{
+      -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($yellow, $link-opacity-top);
+      -moz-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($yellow, $link-opacity-top);
+      box-shadow: inset 0px $link-shadow-top 0px 0px rgba($yellow, $link-opacity-top);
+    }
+    &:hover{
+      transition: box-shadow .2s;
+      &.blue{
+        -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue, $link-opacity-bottom);
+        -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue, $link-opacity-bottom);
+        box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue, $link-opacity-bottom);
+      }
+      &.green{
+        -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($green, $link-opacity-bottom);
+        -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($green, $link-opacity-bottom);
+        box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($green, $link-opacity-bottom);
+      }
+      &.pink{
+        -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($pink, $link-opacity-bottom);
+        -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($pink, $link-opacity-bottom);
+        box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($pink, $link-opacity-bottom);
+      }
+      &.red{
+        -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($red, $link-opacity-bottom);
+        -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($red, $link-opacity-bottom);
+        box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($red, $link-opacity-bottom);
+      }
+      &.yellow{
+        -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($yellow, $link-opacity-bottom);
+        -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($yellow, $link-opacity-bottom);
+        box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($yellow, $link-opacity-bottom);
+      }
+    }  
+  }
+
+  
+
+  &.skewed{
+    transform: skew(5deg);
+    &:before{
+      display: inline-block;
+      position: relative;
+      content: attr(data-content);
+      transform: skew(-5deg);
+    }
+    &.blue{
+      color: $white;
+      background: transparentize($blue, .1);
+    }
+    &.green{
+      color: $white;
+      background: transparentize($green, .1);
+    }
+    &.pink{
+      background: transparentize($pink, .1);
+    }
+    &.red{
+      color: $white;
+      background: transparentize($red, .1);
+    }
+    &.yellow{
+      -webkit-box-shadow: 0px 5px 0px 0px rgba($yellow, .9);
+      -moz-box-shadow: 0px 5px 0px 0px rgba($yellow, .9);
+      box-shadow: 0px 5px 0px 0px rgba($yellow, .9);
+    }
+  }
+
+  &.underlined{
+    transition: box-shadow .5s;
+    &:before{
+      display: inline;
+      position: relative;
+      content: attr(data-content);
+      box-shadow: inset 0px -5px 0 transparent;
+    }
+    &.blue{
+      -webkit-box-shadow: 0px 5px 0px 0px rgba($blue, .5);
+      -moz-box-shadow: 0px 5px 0px 0px rgba($blue, .5);
+      box-shadow: 0px 5px 0px 0px rgba($blue, .5);
+    }
+    &.green{
+      -webkit-box-shadow: 0px 5px 0px 0px rgba($green, .5);
+      -moz-box-shadow: 0px 5px 0px 0px rgba($green, .5);
+      box-shadow: 0px 5px 0px 0px rgba($green, .5);
+    }
+    &.pink{
+      -webkit-box-shadow: 0px 5px 0px 0px rgba($pink, .5);
+      -moz-box-shadow: 0px 5px 0px 0px rgba($pink, .5);
+      box-shadow: 0px 5px 0px 0px rgba($pink, .5);
+    }
+    &.red{
+      -webkit-box-shadow: 0px 5px 0px 0px rgba($red, .5);
+      -moz-box-shadow: 0px 5px 0px 0px rgba($red, .5);
+      box-shadow: 0px 5px 0px 0px rgba($red, .5);
+    }
+    &.yellow{
+      -webkit-box-shadow: 0px 5px 0px 0px rgba($yellow, .5);
+      -moz-box-shadow: 0px 5px 0px 0px rgba($yellow, .5);
+      box-shadow: 0px 5px 0px 0px rgba($yellow, .5);
+    }
+  }
+
+}

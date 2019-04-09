@@ -1,0 +1,58 @@
+.footer{
+  background: transparent;
+  padding: 0;
+  .level{
+    padding: 11rem 1.5rem 3rem;
+  }
+  .footer-links{
+    .footer-link{
+      margin-right: 15px;
+    }
+  }
+  .brand-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    h1, h2{
+      margin: 0 .2em;
+    }
+    h1{
+      margin-bottom: .8em;
+    }
+  }
+}
+
+.simple-footer{
+  display: flex;
+  justify-content: flex-start;
+  border-top: 1px solid $gray-dark;
+  padding: 15px 0;
+
+  color: $gray-darker;
+  > a:hover {
+    color: $gray-darker;
+  }
+
+  .footer-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    a{
+      margin-left: 15px;
+      &:hover {
+        color: $gray-darker;
+      }
+    }
+  }
+
+  .status{
+    display: flex;
+    span{
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+
