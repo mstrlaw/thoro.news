@@ -13,6 +13,8 @@ Thoro News - or simply Thoro - is a free news aggregator service that scrapes th
 
 It allows to understand what are the dominating conversations and themes around the media landscape as well as discovering articles that could otherwise be missed under traditional platforms for news consumption [i.e. Facebook, Apple News, Twitter, Reddit, etc).
 
+It is [@mstrlaw](https://mstrlaw.com)'s side project.
+
 ## The case for creating a news aggregator
 Thoro was born out multiple needs that weren't met from other services, mainly:
 
