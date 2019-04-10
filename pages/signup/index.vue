@@ -58,14 +58,12 @@
 </template>
 
 <script>
-import Waves from '@/components/svg/Waves'
 import EmailInput from '@/components/inputs/EmailInput'
 import PasswordInput from '@/components/inputs/PasswordInput'
 
 export default {
   name: 'Signup',
   components: {
-    Waves,
     EmailInput,
     PasswordInput
   },

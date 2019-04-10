@@ -49,14 +49,12 @@
 
 <script>
 import Cookie from 'js-cookie'
-import Waves from '@/components/svg/Waves'
 import EmailInput from '@/components/inputs/EmailInput'
 import PasswordInput from '@/components/inputs/PasswordInput'
 
 export default {
   name: 'Login',
   components: {
-    Waves,
     EmailInput,
     PasswordInput
   },
