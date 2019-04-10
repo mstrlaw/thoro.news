@@ -39,7 +39,7 @@
         </div>
 
         <div v-if="showDashboardActions" class="d-flex push-left-auto">
-          <!--div
+          <div
             :class="{ 'has-addons has-query': hasQueryTerm }"
             class="field search-field"
           >
@@ -62,7 +62,7 @@
                 <Icon :icon="'close-circle-outline'" />
               </a>
             </div>
-          </div-->
+          </div>
 
           <!--div class="field has-addons">
             <div class="control">
