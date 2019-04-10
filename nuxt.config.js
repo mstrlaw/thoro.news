@@ -152,6 +152,9 @@ module.exports = {
     Build config
   **/
   build: {
+    babel: {
+      plugins: ['lodash']
+    },
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
