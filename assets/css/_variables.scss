@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 /*
   Colors
@@ -29,7 +28,7 @@ $primary:                   $blue;
   Fonts
 */
 $font-family:               'Source Sans Pro', sans-serif;
-$brand-font:                'Comfortaa', cursive;
+$brand-font:                $font-family;
 /*
   LAYOUT SIZING
 */
