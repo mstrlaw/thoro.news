@@ -1,18 +1,13 @@
-// import Vue from 'vue'
-// import Rollbar from 'vue-rollbar'
+import Rollbar from 'rollbar'
 
-// export default function (ctx, inject) {
+const rollbar = new Rollbar({
+  enabled: process.env.NODE_ENV === 'production',
+  accessToken: process.env.ROLLBAR_CLIENT_KEY,
+  serverAccessToken: process.env.ROLLBAR_SERVER_KEY,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+})
 
-//   // Inject Rollbar to the context as $rollbar
-//   ctx.$rollbar = Rollbar
-//   inject('rollbar', Rollbar)
-
-//   Vue.use(Rollbar, {
-//     accessToken: process.env.ROLLBAR_CLIENT_KEY,
-//     captureUncaught: true,
-//     captureUnhandledRejections: true,
-//     // enabled: process.env.NODE_ENV === 'production' ? true : false,
-//     // environment: process.env.NODE_ENV || 'production'
-//   })
-
-// }
+export default function (ctx, inject) {
+  inject('rollbar', rollbar)
+}

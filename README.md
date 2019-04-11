@@ -3,7 +3,6 @@
 
 ![Sources Badge](https://img.shields.io/endpoint.svg?url=https://api.thoro.news/api/stats/badges/sources.json&style)
 ![Articles Badge](https://img.shields.io/endpoint.svg?url=https://api.thoro.news/api/stats/badges/articles.json&style)
-![Rollbar](https://img.shields.io/endpoint.svg?url=https://api.thoro.news/api/stats/badges/rollbar.json)
 ![Uptime](https://img.shields.io/uptimerobot/ratio/m781040119-fa1f7f481be9520d132082b1.svg?style)
 
 ![Header](https://github.com/mstrlaw/thoro.news/blob/master/static/images/app_gif.gif?raw=true)
