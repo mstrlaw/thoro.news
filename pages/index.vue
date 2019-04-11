@@ -56,7 +56,7 @@
 
 <script>
 import Card from '@/components/card/Card'
-import ThemeCloud from '@/components/ThemeCloud'
+import ThemeCloud from '@/components/themeCloud/ThemeCloud'
 import List from '@/components/listing/List'
 import { themeWordCloud } from '@/mixins/themeWordCloud'
 import { mapGetters } from 'vuex'
