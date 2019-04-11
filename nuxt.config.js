@@ -93,7 +93,17 @@ module.exports = {
     '@nuxtjs/toast',
     '@nuxtjs/pwa',
     '@nuxtjs/moment',
-    '@nuxtjs/ngrok'
+    '@nuxtjs/ngrok',
+    [
+      'nuxt-rollbar-module', {
+        clientAccessToken: process.env.ROLLBAR_CLIENT_KEY,
+        serverAccessToken: process.env.ROLLBAR_SERVER_KEY,
+        config: {
+          enabled: process.env.NODE_ENV === 'production'
+          environment: process.env.NODE_ENV || "production"
+        }
+      }
+    ]
   ],
   /**
     PWA config
@@ -142,16 +152,13 @@ module.exports = {
       }
     ]
   },
-  /*
-    Env config for Netlify (hosting static Storybook)
-  */
-  env: {
-    API_ENDPOINT: process.env.API_ENDPOINT
-  },
   /**
     Build config
   **/
   build: {
+    babel: {
+      plugins: ['lodash']
+    },
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
