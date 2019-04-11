@@ -69,7 +69,8 @@ module.exports = {
     { src: '@/plugins/hotjar', ssr: false },
     '@/plugins/logo',
     '@/plugins/mdi',
-    '@/plugins/v-tooltip'
+    '@/plugins/v-tooltip',
+    '@/plugins/rollbar'
   ],
   /**
     Toast config
@@ -93,17 +94,7 @@ module.exports = {
     '@nuxtjs/toast',
     '@nuxtjs/pwa',
     '@nuxtjs/moment',
-    '@nuxtjs/ngrok',
-    [
-      'nuxt-rollbar-module', {
-        clientAccessToken: process.env.ROLLBAR_CLIENT_KEY,
-        serverAccessToken: process.env.ROLLBAR_SERVER_KEY,
-        config: {
-          enabled: process.env.NODE_ENV === 'production'
-          environment: process.env.NODE_ENV || "production"
-        }
-      }
-    ]
+    '@nuxtjs/ngrok'
   ],
   /**
     PWA config

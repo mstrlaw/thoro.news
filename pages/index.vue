@@ -127,7 +127,6 @@ export default {
         this.clusters = res.data
         this.featuredClusters = res.data.slice(0, 7)
         this.setThemeCloud()
-        console.log(res.fake.length)
       })
     }
   },
