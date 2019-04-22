@@ -59,8 +59,8 @@ export default {
   computed: {
     ...mapGetters({
       scrollPos: 'scrollPosition',
-      dialogState: 'dialogState',
-      indexPreview: 'indexPreview'
+      dialogState: 'modal/dialogState',
+      indexPreview: 'modal/indexPreview'
     })
   },
   watch: {
@@ -101,7 +101,7 @@ export default {
     },
     navigate(direction, articleId) {
       this.$store
-        .dispatch('navigateAdjacentArticle', {
+        .dispatch('modal/navigateAdjacentArticle', {
           direction: direction,
           currentArticleId: articleId
         })
@@ -110,10 +110,10 @@ export default {
         })
     },
     closeDialog() {
-      this.$store.dispatch('setDialogState', false)
-      this.$store.dispatch('saveClusterTweets', [])
-      this.$store.dispatch('setClusterTrendData', [])
-      this.$store.commit('resetSelectedCluster')
+      this.$store.dispatch('modal/saveDialogState', false)
+      this.$store.dispatch('modal/saveClusterTweets', [])
+      this.$store.dispatch('modal/saveClusterTrendData', [])
+      this.$store.commit('modal/resetSelectedCluster')
 
       setTimeout(() => {
         window.scrollTo(0, this.scrollPos)

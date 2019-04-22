@@ -6,16 +6,16 @@ import store from '@/.storybook/store'
 import { articles, clusterData, tweets, trendData } from '@/fixtures/storiesData'
 
 
-store.dispatch('saveClusterArticles', articles)
-store.dispatch('saveSelectedArticle', articles[0])
-store.dispatch('saveSelectedCluster', clusterData)
+store.dispatch('modal/saveClusterArticles', articles)
+store.dispatch('modal/saveSelectedArticle', articles[0])
+store.dispatch('modal/saveSelectedCluster', clusterData)
 store.dispatch('saveScrollPosition', 0)
 
-store.dispatch('saveClusterTweets', tweets)
+store.dispatch('modal/saveClusterTweets', tweets)
 
-store.dispatch('setClusterTrendData', trendData)
+store.dispatch('modal/saveClusterTrendData', trendData)
 
-store.dispatch('setDialogState', true)
+store.dispatch('modal/setDialogState', true)
 
 
 //  Define a wrapper to better view the List

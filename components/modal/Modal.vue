@@ -61,10 +61,10 @@ export default {
   },
   computed: {
     ...mapGetters({
-      dialogState: 'dialogState',
-      article: 'selectedArticle',
-      selectedCluster: 'selectedCluster',
-      clusterTweets: 'clusterTweets'
+      dialogState: 'modal/dialogState',
+      article: 'modal/selectedArticle',
+      selectedCluster: 'modal/selectedCluster',
+      clusterTweets: 'modal/clusterTweets'
     }),
     clusterTheme() {
       return this.selectedCluster.mainTheme[0]

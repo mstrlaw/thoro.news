@@ -63,40 +63,13 @@ export default {
   setRedirect(state, value) {
     state.redirectUrl = value
   },
+  setTopicSortOption(state, option) {
+    state.sortOption = option
+  },
   /*
     CHARTS
   */
   setMaxDays(state, value) {
     state.maxDays = value
-  },
-  /*
-    CLUSTER
-  */
-  setTopicSortOption(state, option) {
-    state.sortOption = option
-  },
-  setClusterArticles(state, articles) {
-    state.clusterArticles = articles
-  },
-  setClusterTweets(state, tweets) {
-    state.clusterTweets = tweets
-  },
-  setSelectedArticle(state, article) {
-    state.selectedArticle = article
-  },
-  setSelectedCluster(state, cluster) {
-    state.selectedCluster = cluster
-  },
-  setClusterTrendData(state, data) {
-    state.clusterTrendData = data
-  },
-  setCurrentArticleIndex(state, value) {
-    state.currentArticleIndex = value
-  },
-  switchCurrentArticle(state, newArticle) {
-    state.selectedArticle = newArticle
-  },
-  resetSelectedCluster(state) {
-    state.selectedCluster = { mainTheme: [''] }
   }
 }

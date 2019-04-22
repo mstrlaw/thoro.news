@@ -38,52 +38,8 @@ export default {
   setNavigationState({ commit }, value) {
     commit('setNavState', value)
   },
-  //  Modal dialog
-  setDialogState({ commit }, value) {
-    commit('setDialogState', value)
-  },
   saveTopicSortOption({ commit }, option) {
     commit('setTopicSortOption', option)
-  },
-  saveClusterArticles({ commit }, articles) {
-    commit('setClusterArticles', articles)
-  },
-  saveSelectedCluster({ commit }, data) {
-    commit('setSelectedCluster', data)
-  },
-  saveClusterTweets({ commit }, tweets) {
-    commit('setClusterTweets', tweets)
-  },
-  saveSelectedArticle({ commit, state }, article) {
-    const currentIndex = state.clusterArticles.findIndex(item => {
-      return item._id === article._id
-    })
-    commit('setCurrentArticleIndex', currentIndex)
-    commit('setSelectedArticle', article)
-  },
-  setClusterTrendData({ commit }, data) {
-    commit('setClusterTrendData', data)
-  },
-  navigateAdjacentArticle({ commit, state }, params) {
-    const currentIndex = state.clusterArticles.findIndex(article => {
-      return article._id === params.currentArticleId
-    })
-
-    if (params.direction === 'prev') {
-      const newIndex = currentIndex - 1
-      if (newIndex >= 0) {
-        commit('switchCurrentArticle', state.clusterArticles[newIndex])
-        commit('setCurrentArticleIndex', newIndex)
-      }
-    }
-    if (params.direction === 'next') {
-      const newIndex = currentIndex + 1
-      if (newIndex < state.clusterArticles.length) {
-        commit('switchCurrentArticle', state.clusterArticles[newIndex])
-        commit('setCurrentArticleIndex', newIndex)
-      }
-    }
-    return state.sortOption
   },
   // Chart
   saveMaxDays({ commit }, value) {

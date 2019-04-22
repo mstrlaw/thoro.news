@@ -46,16 +46,16 @@ export default {
             )
           })
 
-          this.$store.dispatch('saveClusterArticles', articles)
-          this.$store.dispatch('saveSelectedArticle', articles[0])
-          this.$store.dispatch('saveSelectedCluster', clusterData)
+          this.$store.dispatch('modal/saveClusterArticles', articles)
+          this.$store.dispatch('modal/saveSelectedArticle', articles[0])
+          this.$store.dispatch('modal/saveSelectedCluster', clusterData)
           this.$store.dispatch('saveScrollPosition', window.pageYOffset)
-          this.$store.dispatch('setDialogState', true)
+          this.$store.dispatch('modal/saveDialogState', true)
 
           this.$store
             .dispatch('GET_TWEETS', clusterData.mainTheme[0])
             .then(res => {
-              this.$store.dispatch('saveClusterTweets', res.data)
+              this.$store.dispatch('modal/saveClusterTweets', res.data)
             })
             .catch(err => {
               console.log(err)
@@ -76,7 +76,7 @@ export default {
         })
         .then(res => {
           if (res.data.length > 0) {
-            this.$store.dispatch('setClusterTrendData', res.data)
+            this.$store.dispatch('modal/saveClusterTrendData', res.data)
           }
         })
         .catch(err => {

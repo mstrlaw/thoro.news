@@ -66,7 +66,7 @@ export default {
     changeRange(e) {
       const maxDays = parseInt(e.target.getAttribute('data-range'))
       if (maxDays !== this.maxDays) {
-        this.$store.dispatch('setClusterTrendData', [])
+        this.$store.dispatch('modal/saveClusterTrendData', [])
         this.rangeDropdownState = false
         this.$store.dispatch('saveMaxDays', maxDays)
       }

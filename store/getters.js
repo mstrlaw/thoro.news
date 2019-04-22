@@ -25,9 +25,6 @@ export default {
   navigationState: state => {
     return state.navState
   },
-  dialogState: state => {
-    return state.dialogState
-  },
   scrollPosition: state => {
     return state.scrollPosition
   },
@@ -63,34 +60,13 @@ export default {
   redirectUrl: state => {
     return state.redirectUrl
   },
+  topicSortOption: state => {
+    return state.sortOption
+  },
   /*
     CHARTS
   */
   maxDays: state => {
     return state.maxDays
-  },
-  /*
-    CLUSTER
-  */
-  topicSortOption: state => {
-    return state.sortOption
-  },
-  selectedArticle: state => {
-    return state.selectedArticle
-  },
-  selectedCluster: state => {
-    return state.selectedCluster
-  },
-  clusterArticles: state => {
-    return state.clusterArticles
-  },
-  clusterTweets: state => {
-    return state.clusterTweets
-  },
-  clusterTrendData: state => {
-    return state.clusterTrendData
-  },
-  indexPreview: state => {
-    return `${state.currentArticleIndex + 1}/${state.clusterArticles.length}`
   }
 }
