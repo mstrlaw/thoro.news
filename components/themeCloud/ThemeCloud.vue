@@ -38,7 +38,7 @@ export default {
   methods: {
     openClusterDialog(clusterData) {
       this.$store
-        .dispatch('GET_ARTICLE', { articleId: clusterData.articles })
+        .dispatch('api/GET_ARTICLE', { articleId: clusterData.articles })
         .then(res => {
           const articles = res.data.sort((a, b) => {
             return (
@@ -53,7 +53,7 @@ export default {
           this.$store.dispatch('modal/saveDialogState', true)
 
           this.$store
-            .dispatch('GET_TWEETS', clusterData.mainTheme[0])
+            .dispatch('api/GET_TWEETS', clusterData.mainTheme[0])
             .then(res => {
               this.$store.dispatch('modal/saveClusterTweets', res.data)
             })
@@ -66,7 +66,7 @@ export default {
     },
     getChartData(clusterData) {
       this.$store
-        .dispatch('GET_TOPIC_DATA', {
+        .dispatch('api/GET_TOPIC_DATA', {
           topic: clusterData.mainTheme[0],
           options: {
             minDate: moment()

@@ -1,12 +1,5 @@
 export default {
   /*
-    AUTH
-  */
-  /* Token */
-  setAuth(state, data) {
-    state.auth = data
-  },
-  /*
    ** User
    */
   setUserName(state, username) {

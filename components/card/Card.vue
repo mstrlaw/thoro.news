@@ -213,7 +213,7 @@ export default {
       this.$store.dispatch('modal/saveDialogState', true)
 
       this.$store
-        .dispatch('GET_TWEETS', this.clusterData.mainTheme[0])
+        .dispatch('api/GET_TWEETS', this.clusterData.mainTheme[0])
         .then(res => {
           this.$store.dispatch('modal/saveClusterTweets', res.data)
         })
@@ -225,7 +225,7 @@ export default {
     },
     getChartData() {
       this.$store
-        .dispatch('GET_TOPIC_DATA', {
+        .dispatch('api/GET_TOPIC_DATA', {
           topic: this.mainTheme,
           options: {
             minDate: moment()
@@ -263,7 +263,7 @@ export default {
         !this.loadedCluster
       ) {
         this.$store
-          .dispatch('GET_ARTICLE', { articleId: this.clusterData.articles })
+          .dispatch('api/GET_ARTICLE', { articleId: this.clusterData.articles })
           .then(res => {
             this.articles = res.data.sort((a, b) => {
               return (

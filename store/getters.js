@@ -1,23 +1,17 @@
 import moment from 'moment'
 
 export default {
-  /*
-    AUTH
-  */
-  auth: state => {
-    return state.auth
+  userRole: rootState => {
+    return rootState.api.auth.role
   },
-  userRole: state => {
-    return state.auth.role
+  username: rootState => {
+    return rootState.api.auth.username
   },
-  username: state => {
-    return state.auth.username
+  isAdmin: rootState => {
+    return rootState.api.auth.role === 'admin'
   },
-  isAdmin: state => {
-    return state.auth.role === 'admin'
-  },
-  isUser: state => {
-    return state.auth.role === 'user'
+  isUser: rootState => {
+    return rootState.api.auth.role === 'user'
   },
   /*
     UX

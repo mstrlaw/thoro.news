@@ -14,7 +14,7 @@ export default async function ({ isServer, store, res, app }) {
       }
 
       Cookie.set('t', tokenRes.data.data.token)
-      store.commit('setAuth', {
+      store.commit('api/setAuth', {
         type: tokenRes.data.data.type,
         token: tokenRes.data.data.token
       })
@@ -23,7 +23,7 @@ export default async function ({ isServer, store, res, app }) {
     if (isServer) {
       res.setHeader('Authorization', token)
     }
-    store.commit('setAuth', {
+    store.commit('api/setAuth', {
       type: 'Bearer',
       token: token
     })

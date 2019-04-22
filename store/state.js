@@ -4,10 +4,6 @@ export default () => ({
   /*
     AUTH
   */
-  auth: {
-    type: '',
-    token: ''
-  },
   userName: '',
   userToken: false,
   userRole: false,
