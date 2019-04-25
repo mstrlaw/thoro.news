@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 
 const getToken = cookies => {
   let cookie = cookies.match(/\s?t={(.*?)(;|\n|\r|})/gmi)
-  if (cookie.length > 0) {
+  if (cookie > 0) {
     cookie = unescape(cookie[0].match(/{(.*)}/gmi))
     return JSON.parse(cookie)
   } else {
@@ -41,7 +41,7 @@ export default async function ({ store, req, res, app }) {
   }
 
   //  Generate new token
-  if (typeof tokenData === 'undefined') {
+  if (typeof tokenData === 'undefined' || !tokenData) {
     res = await refreshToken(app, store, res)
   } else {
     //  Use existing token
