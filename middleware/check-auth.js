@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 
 const getToken = cookies => {
   let cookie = cookies.match(/\s?t={(.*?)(;|\n|\r|})/gmi)
-  if (cookie > 0) {
+  if (cookie !== null) {
     cookie = unescape(cookie[0].match(/{(.*)}/gmi))
     return JSON.parse(cookie)
   } else {
