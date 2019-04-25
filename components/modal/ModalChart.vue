@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     clusterTrendData() {
-      return this.$store.getters.clusterTrendData
+      return this.$store.getters['modal/clusterTrendData']
     }
   }
 }

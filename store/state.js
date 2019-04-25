@@ -4,10 +4,6 @@ export default () => ({
   /*
     AUTH
   */
-  auth: {
-    type: '',
-    token: ''
-  },
   userName: '',
   userToken: false,
   userRole: false,
@@ -16,7 +12,6 @@ export default () => ({
   */
   appLoading: true,
   navState: false,
-  dialogState: false,
   scrollPosition: 0,
   currentDay: moment().startOf('day').toISOString(),
   dashboardType: 'wall',
@@ -26,26 +21,9 @@ export default () => ({
   showDataActions: true,
   breadcrumbs: false,
   redirectUrl: '',
+  sortOption: 'score',
   /*
     CHARTS
   */
-  maxDays: 30,
-  /*
-    CLUSTER
-  */
-  sortOption: 'score',
-  clusterArticles: [],
-  clusterTweets: [],
-  indexPreview: '',
-  currentArticleIndex: 0,
-  selectedArticle: {
-    title: 'Loading main headline...',
-    url: 'http://example.com',
-    domain: 'loading..',
-    matchedWords: []
-  },
-  selectedCluster: {
-    mainTheme: ['']
-  },
-  clusterTrendData: []
+  maxDays: 30
 })

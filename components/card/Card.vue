@@ -204,18 +204,18 @@ export default {
         return item._id === articleId
       })
 
-      this.$store.dispatch('saveClusterArticles', this.articles)
-      this.$store.dispatch('saveSelectedArticle', article[0])
+      this.$store.dispatch('modal/saveClusterArticles', this.articles)
+      this.$store.dispatch('modal/saveSelectedArticle', article[0])
 
-      this.$store.dispatch('saveSelectedCluster', this.clusterData)
+      this.$store.dispatch('modal/saveSelectedCluster', this.clusterData)
 
       this.$store.dispatch('saveScrollPosition', window.pageYOffset)
-      this.$store.dispatch('setDialogState', true)
+      this.$store.dispatch('modal/saveDialogState', true)
 
       this.$store
-        .dispatch('GET_TWEETS', this.clusterData.mainTheme[0])
+        .dispatch('api/GET_TWEETS', this.clusterData.mainTheme[0])
         .then(res => {
-          this.$store.dispatch('saveClusterTweets', res.data)
+          this.$store.dispatch('modal/saveClusterTweets', res.data)
         })
         .catch(err => {
           console.log(err)
@@ -225,7 +225,7 @@ export default {
     },
     getChartData() {
       this.$store
-        .dispatch('GET_TOPIC_DATA', {
+        .dispatch('api/GET_TOPIC_DATA', {
           topic: this.mainTheme,
           options: {
             minDate: moment()
@@ -235,7 +235,7 @@ export default {
         })
         .then(res => {
           if (res.data.length > 0) {
-            this.$store.dispatch('setClusterTrendData', res.data)
+            this.$store.dispatch('modal/saveClusterTrendData', res.data)
           }
         })
         .catch(err => {
@@ -263,7 +263,7 @@ export default {
         !this.loadedCluster
       ) {
         this.$store
-          .dispatch('GET_ARTICLE', { articleId: this.clusterData.articles })
+          .dispatch('api/GET_ARTICLE', { articleId: this.clusterData.articles })
           .then(res => {
             this.articles = res.data.sort((a, b) => {
               return (

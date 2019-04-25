@@ -1,32 +1,23 @@
 import moment from 'moment'
 
 export default {
-  /*
-    AUTH
-  */
-  auth: state => {
-    return state.auth
+  userRole: rootState => {
+    return rootState.api.auth.role
   },
-  userRole: state => {
-    return state.auth.role
+  username: rootState => {
+    return rootState.api.auth.username
   },
-  username: state => {
-    return state.auth.username
+  isAdmin: rootState => {
+    return rootState.api.auth.role === 'admin'
   },
-  isAdmin: state => {
-    return state.auth.role === 'admin'
-  },
-  isUser: state => {
-    return state.auth.role === 'user'
+  isUser: rootState => {
+    return rootState.api.auth.role === 'user'
   },
   /*
     UX
   */
   navigationState: state => {
     return state.navState
-  },
-  dialogState: state => {
-    return state.dialogState
   },
   scrollPosition: state => {
     return state.scrollPosition
@@ -63,34 +54,13 @@ export default {
   redirectUrl: state => {
     return state.redirectUrl
   },
+  topicSortOption: state => {
+    return state.sortOption
+  },
   /*
     CHARTS
   */
   maxDays: state => {
     return state.maxDays
-  },
-  /*
-    CLUSTER
-  */
-  topicSortOption: state => {
-    return state.sortOption
-  },
-  selectedArticle: state => {
-    return state.selectedArticle
-  },
-  selectedCluster: state => {
-    return state.selectedCluster
-  },
-  clusterArticles: state => {
-    return state.clusterArticles
-  },
-  clusterTweets: state => {
-    return state.clusterTweets
-  },
-  clusterTrendData: state => {
-    return state.clusterTrendData
-  },
-  indexPreview: state => {
-    return `${state.currentArticleIndex + 1}/${state.clusterArticles.length}`
   }
 }

@@ -248,7 +248,7 @@ export default {
     performSearch: debounce(function (query) {
       if (query.length > 2) {
         this.loadingResults = true
-        this.$store.dispatch('searchArticle', { query: query }).then(res => {
+        this.$store.dispatch('api/searchArticle', { query: query }).then(res => {
           this.loadingResults = false
           document.getElementById('searchResults').scrollTo(0, 0)
 

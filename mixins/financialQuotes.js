@@ -6,7 +6,7 @@ const financialQuotes = {
   },
   methods: {
     populateCryptoQuotes(symbol) {
-      this.$store.dispatch('GET_CRYPTO_QUOTE', symbol).then(res => {
+      this.$store.dispatch('api/GET_CRYPTO_QUOTE', symbol).then(res => {
         // console.log(res.cap24hrChange)
         // console.log(res.id)
         const tooltips = document.getElementsByClassName(

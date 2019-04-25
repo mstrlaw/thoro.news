@@ -116,7 +116,7 @@ export default {
       this.shouldLoadData = !this.shouldLoadData
     }, debounceTimeout),
     reloadClusters() {
-      this.$store.dispatch('GET_TOPICS', {
+      this.$store.dispatch('api/GET_TOPICS', {
         date: this.$store.getters.selectedDate,
         topic: this.topic,
         options: {
@@ -137,7 +137,7 @@ export default {
     store.commit('setBreadcrumbs', false)
     store.commit('setShowDataActions', false)
 
-    const res = await store.dispatch('GET_TOPICS', {
+    const res = await store.dispatch('api/GET_TOPICS', {
       date: store.getters.selectedDate,
       topic: params.mainCategory,
       options: {

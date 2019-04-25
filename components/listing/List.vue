@@ -92,7 +92,7 @@ export default {
   methods: {
     loadArticles(options) {
       this.$store
-        .dispatch('GET_ARTICLE', {
+        .dispatch('api/GET_ARTICLE', {
           articleId: [],
           options: this.options
         })

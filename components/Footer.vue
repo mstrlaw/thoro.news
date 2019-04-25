@@ -56,49 +56,54 @@ export default {
     }
   },
   mounted() {
-    this.$axios
-      .post('https://api.uptimerobot.com/v2/getMonitors', {
-        api_key: process.env.UPTIME_ROBOT_KEY,
-        format: 'json'
-      })
-      .then(res => {
-        // console.log(res)
-        if (typeof res.data.monitors !== 'undefined') {
-          res.data.monitors.map(monitor => {
-            const status = monitor.status
-            let className = 'has-text-light'
-            let message = 'Getting status..'
+    this.loadStatus()
+  },
+  methods: {
+    loadStatus() {
+      this.$axios
+        .post('https://api.uptimerobot.com/v2/getMonitors', {
+          api_key: process.env.UPTIME_ROBOT_KEY,
+          format: 'json'
+        })
+        .then(res => {
+          // console.log(res)
+          if (typeof res.data.monitors !== 'undefined') {
+            res.data.monitors.map(monitor => {
+              const status = monitor.status
+              let className = 'has-text-light'
+              let message = 'Getting status..'
 
-            if (status === 2) {
-              className = 'has-text-success'
-              message = 'Running'
-            }
-            if (status === 8) {
-              className = 'has-text-warning'
-              message = 'Intermittent'
-            }
-            if (status === 9) {
-              className = 'has-text-danger'
-              message = 'Down'
-            }
+              if (status === 2) {
+                className = 'has-text-success'
+                message = 'Running'
+              }
+              if (status === 8) {
+                className = 'has-text-warning'
+                message = 'Intermittent'
+              }
+              if (status === 9) {
+                className = 'has-text-danger'
+                message = 'Down'
+              }
 
-            switch (monitor.friendly_name) {
-              case 'APP':
-                this.appClass = className
-                this.appMessage = message
-                break
-              case 'GETTER':
-                this.getterClass = className
-                this.getterMessage = message
-                break
-              case 'CRUNCHER':
-                this.cruncherClass = className
-                this.cruncherMessage = message
-                break
-            }
-          })
-        }
-      })
+              switch (monitor.friendly_name) {
+                case 'APP':
+                  this.appClass = className
+                  this.appMessage = message
+                  break
+                case 'GETTER':
+                  this.getterClass = className
+                  this.getterMessage = message
+                  break
+                case 'CRUNCHER':
+                  this.cruncherClass = className
+                  this.cruncherMessage = message
+                  break
+              }
+            })
+          }
+        })
+    }
   }
 }
 </script>
