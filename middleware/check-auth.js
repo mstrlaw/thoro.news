@@ -35,7 +35,11 @@ const refreshToken = async (app, store, res) => {
 export default async function ({ store, req, res, app }) {
   let tokenData
   if (process.server) {
-    tokenData = getToken(req.headers.cookie)
+    if (typeof req.headers.cookie !== 'undefined') {
+      tokenData = getToken(req.headers.cookie)
+    } else {
+      tokenData = false
+    }
   } else {
     tokenData = Cookies.get('t')
   }
