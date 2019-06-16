@@ -80,7 +80,7 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('setDialogState', false)
+    this.$store.commit('modal/setDialogState', false)
     this.$store.commit('setDashboardActions', false)
     this.$store.commit('setShowOrderAction', false)
 
@@ -103,7 +103,6 @@ export default {
   },
   methods: {
     publishDate(date) {
-      console.log(date === null)
       if (typeof date !== 'undefined' && date !== null) {
         return moment(date).from(moment())
       } else {
@@ -133,12 +132,12 @@ export default {
       return className
     },
     loadSources() {
+      const auth = this.$store.getters['api/auth']
+
       this.$axios
         .$get(`${process.env.API_ENDPOINT}/admin/sources`, {
           headers: {
-            Authorization: `${this.$store.getters.auth.type} ${
-              this.$store.getters.auth.token
-            }`
+            Authorization: `${auth.type} ${auth.token}`
           }
         })
         .then(res => {

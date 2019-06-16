@@ -23,7 +23,6 @@ export default {
     commit('setClusterTrendData', data)
   },
   navigateAdjacentArticle({ commit, state }, params) {
-    console.log('navigateAdjacentArticle')
     const currentIndex = state.clusterArticles.findIndex(article => {
       return article._id === params.currentArticleId
     })
