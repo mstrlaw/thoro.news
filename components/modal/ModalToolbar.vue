@@ -33,7 +33,7 @@
           :data-article="article._id"
           href="#"
           class="action prev"
-          title="Previous article"
+          title="Previous cluster"
           @click.prevent="navigateClusters('prev')"
         >
           <!-- @click.prevent="navigate('prev', article._id)" -->
@@ -45,7 +45,7 @@
           :data-article="article._id"
           href="#"
           class="action next"
-          title="Next article"
+          title="Next cluster"
           @click.prevent="navigateClusters('next')"
         >
           <span class="context">Next</span> &nbsp;
