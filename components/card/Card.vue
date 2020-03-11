@@ -10,11 +10,13 @@
   >
     <div class="top-section">
       <div class="topics">
-        <a href="#" rel="noreferrer" class="topic" @click.prevent>
+        <div
+          class="topic tag is-dark"
+        >
           <Icon :icon="'label-outline'" />
           &nbsp;
-          <span class="topic-label">{{ mainTheme }}</span>
-        </a>
+          <b class="topic-label">{{ mainTheme }}</b>
+        </div>
       </div>
     </div>
 
@@ -40,12 +42,7 @@
           v-text="publishDate(mainArticle.articlePublishDate)"
         />
       </span>
-      by
-      <nuxt-link
-        :to="{ name: 'sources-domain', params: { domain: mainArticle.domain } }"
-        :class="'highlighted link red'"
-        v-text="mainArticle.domain"
-      />
+      by <b>{{ mainArticle.domain }}</b>
     </div>
 
     <ul class="headlines">
@@ -69,15 +66,7 @@
               :datetime="article.articlePublishDate"
               v-text="publishDate(article.articlePublishDate)"
             />
-            by
-            <nuxt-link
-              :to="{
-                name: 'sources-domain',
-                params: { domain: article.domain }
-              }"
-              :class="'highlighted link red'"
-              v-text="article.domain"
-            />
+            by <b>{{ article.domain }}</b>
           </small>
         </span>
       </li>

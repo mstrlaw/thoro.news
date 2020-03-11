@@ -3,10 +3,34 @@
     <div class="container">
       <div class="columns push-top-5">
         <!-- main column -->
-        <div class="column is-8-tablet is-9-widescreen">
+        <div class="column is-widescreen">
           <div class="header">
             <h4 v-text="`Trending Headlines for ${ selectedDay }`" />
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-12">
+          <div class="card">
+            <div class="top-section">
+              <div class="topics">
+                <span class="topic">
+                  <Icon :icon="'chart-line-variant'" />&nbsp;
+                  <span class="topic-label" v-text="'Trending'" />
+                </span>
+              </div>
+            </div>
+            <ThemeCloud :themes="themeCloud" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns">
+        <!-- main column -->
+        <div class="column is-12">
           <div class="cards-wrapper">
             <Card
               v-for="(cluster, index) in featuredClusters"
@@ -28,26 +52,6 @@
             </div-->
           </div>
 
-        </div>
-        <!-- right side column -->
-        <div class="column">
-          <div class="card">
-            <div class="top-section">
-              <div class="topics">
-                <span class="topic">
-                  <Icon :icon="'chart-line-variant'" />&nbsp;
-                  <span class="topic-label" v-text="'Trending'" />
-                </span>
-              </div>
-            </div>
-            <ThemeCloud :themes="themeCloud" />
-          </div>
-          <!--div class="card push-top-10">
-            <List
-              :source="'medium'"
-              :options="APIOptions"
-            />
-          </div-->
         </div>
       </div>
     </div>
@@ -125,7 +129,7 @@ export default {
         }
       }).then(res => {
         this.clusters = res.data
-        this.featuredClusters = res.data.slice(0, 7)
+        this.featuredClusters = res.data.slice(0, 21)
         this.setThemeCloud()
       })
     }
@@ -145,6 +149,8 @@ export default {
         sort: store.getters.topicSortOption
       }
     })
+
+    store.commit('saveClusters', res.data)
 
     return {
       clusters: res.data.slice(0),

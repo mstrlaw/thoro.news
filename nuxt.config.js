@@ -64,13 +64,13 @@ module.exports = {
     Plugins
   **/
   plugins: [
-    { src: '@/plugins/init', ssr: false },
-    { src: '@/plugins/ga', ssr: false },
-    { src: '@/plugins/hotjar', ssr: false },
     '@/plugins/logo',
     '@/plugins/mdi',
     '@/plugins/v-tooltip',
-    '@/plugins/rollbar'
+    '@/plugins/rollbar',
+    { src: '@/plugins/init', ssr: false },
+    { src: '@/plugins/ga', ssr: false },
+    { src: '@/plugins/hotjar', ssr: false }
   ],
   /**
     Toast config

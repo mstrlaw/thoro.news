@@ -1,7 +1,6 @@
 .open-dialog{
   .content-area{
-    height: 0;
-    overflow: hidden;
+    overflow: hidden!important;
   }
   nav, .tool-bar{
     filter: blur(2px);
@@ -30,7 +29,7 @@
       transition: transform .5s;
     }
   }
-  
+
   .dialog-header{
     display: flex;
     justify-content: flex-end;
@@ -191,7 +190,7 @@
           height: 20em;
           background-color: rgba(0, 0, 0, 0.5);
           background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGUlEQVQIW2NkYGD4z8DAwMiABFA4MHEKBQFmoAEGdnHj3wAAAABJRU5ErkJggg==);
-          background-repeat: repeat; 
+          background-repeat: repeat;
         }
         .image{
           display: block;
@@ -231,7 +230,7 @@
           }
         }
       }
-      
+
       .content{
         padding: 0px 15px 0 15px;
         p{
@@ -246,7 +245,7 @@
 
   @media #{$medium} {
     padding-left: 0;
-    
+
     .inner-dialog{
       background: $dark;
       &.has-media{

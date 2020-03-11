@@ -5,7 +5,6 @@ import store from '@/.storybook/store'
 
 import { articles, clusterData, tweets, trendData } from '@/fixtures/storiesData'
 
-
 store.dispatch('modal/saveClusterArticles', articles)
 store.dispatch('modal/saveSelectedArticle', articles[0])
 store.dispatch('modal/saveSelectedCluster', clusterData)
@@ -16,7 +15,6 @@ store.dispatch('modal/saveClusterTweets', tweets)
 store.dispatch('modal/saveClusterTrendData', trendData)
 
 store.dispatch('modal/setDialogState', true)
-
 
 //  Define a wrapper to better view the List
 // const listWrapper = () => {
@@ -48,12 +46,12 @@ const componentInfo = `
   Relevant data:
 
   \`\`\`text
-  @clusterArticles     {array}:   All articles' data from the current selected cluster;
-  @clusterTweets       {array}:   Tweets related to this cluster theme;
-  @currentArticleIndex {number}:  Index of currently selected article;
-  @selectedArticle     {object}:  Currently selected article;
-  @selectedCluster     {object}:  Currently selected Cluster;
-  @clusterTrendData    {object}:  Trend data for current cluster to plot chart;
+  @clusterArticles      {array}:   All articles' data from the current selected cluster;
+  @clusterTweets        {array}:   Tweets related to this cluster theme;
+  @currentArticleIndex  {number}:  Index of currently selected article;
+  @selectedArticle      {object}:  Currently selected article;
+  @selectedCluster      {object}:  Currently selected Cluster;
+  @clusterTrendData     {object}:  Trend data for current cluster to plot chart;
   \`\`\`
 
   ### Keyboard Events
@@ -68,7 +66,7 @@ storiesOf('Modal', module)
     'Articles',
     () => ({
       components: { Modal },
-      template: `<Modal />`,
+      template: '<Modal />',
       store: store,
       data: () => ({
         yPos: 0,

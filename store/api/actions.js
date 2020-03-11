@@ -49,7 +49,7 @@ export default {
   },
   // Crypto
   async GET_CRYPTO_QUOTE({}, symbol) {
-    const url = `https://coincap.io/page/${symbol}`
+    const url = `https://api.coincap.io/v2/assets/${symbol}`
     return await this.$axios.$get(url)
   },
   // Twitter
@@ -62,12 +62,9 @@ export default {
   // Search
   async searchArticle({ getters }, { query, options }) {
     let url = `${process.env.API_ENDPOINT}/api/search/${query}`
-    // console.log('options')
-    // console.log(options)
     if (options) {
       url += '?' + serialize(options)
     }
-    // console.log(url)
     return await this.$axios.$get(url, {
       headers: { Authorization: `${getters.auth.type} ${getters.auth.token}` }
     })

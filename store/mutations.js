@@ -64,5 +64,11 @@ export default {
   */
   setMaxDays(state, value) {
     state.maxDays = value
+  },
+  /*
+    CLUSTERS
+  */
+  saveClusters(state, value) {
+    state.clusters = [...value]
   }
 }

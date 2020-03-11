@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'expanded-nav': activeNav, 'open-dialog': activeDialog }">
+  <div :class="layoutClassObject">
     <Navigation />
     <div class="content-area">
       <div class="inner-content">
@@ -13,7 +13,7 @@
 
 <script>
 import Navigation from '@/components/navigation/Navigation'
-import Modal from '@/components/modal/Modal'
+import Modal from '@/components/modal/new/Modal'
 import Footer from '@/components/Footer'
 
 export default {
@@ -25,17 +25,22 @@ export default {
   },
   head() {
     return {
+      htmlAttrs: {
+        class: `${this.dialogClass}`
+      },
       bodyAttrs: {
-        class: 'has-navbar-fixed-top'
+        class: `has-navbar-fixed-top ${this.dialogClass}`
       }
     }
   },
   computed: {
-    activeNav() {
-      return this.$store.getters.navigationState
+    dialogClass() {
+      return this.$store.getters['modal/dialogState'] ? 'open-modal' : ''
     },
-    activeDialog() {
-      return this.$store.getters.dialogState
+    layoutClassObject() {
+      return {
+        'expanded-nav': this.$store.getters.navigationState
+      }
     }
   },
   watch: {

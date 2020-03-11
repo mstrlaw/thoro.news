@@ -126,7 +126,7 @@ export default {
         }
       }).then(res => {
         this.clusters = res.data
-        this.featuredClusters = res.data.slice(0, 7)
+        this.featuredClusters = res.data.slice(0, 21)
         this.setThemeCloud()
       })
     }
@@ -150,7 +150,7 @@ export default {
 
     return {
       clusters: res.data,
-      featuredClusters: res.data.slice(0, 7)
+      featuredClusters: res.data.slice(0, 21)
     }
   }
 }

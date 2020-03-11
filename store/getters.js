@@ -62,5 +62,24 @@ export default {
   */
   maxDays: state => {
     return state.maxDays
+  },
+  // CLUSTERS
+  getAdjacentCluster: state => params => {
+    const currentIndex = state.clusters.findIndex(cluster => {
+      return cluster._id === params.id
+    })
+
+    if (params.direction === 'prev') {
+      const newIndex = currentIndex - 1
+      if (newIndex >= 0) {
+        return state.clusters[newIndex]
+      }
+    }
+    if (params.direction === 'next') {
+      const newIndex = currentIndex + 1
+      if (newIndex < state.clusters.length) {
+        return state.clusters[newIndex]
+      }
+    }
   }
 }

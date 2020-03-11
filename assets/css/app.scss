@@ -26,3 +26,10 @@ html, body{
   color: $black;
   background: $white;
 }
+
+.open-modal {
+  overflow: hidden!important;
+  .content-area {
+    overflow: hidden!important;
+  }
+}

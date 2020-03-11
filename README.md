@@ -9,7 +9,7 @@
 
 
 ## What is Thoro News
-Thoro News - or simply Thoro - is a free news aggregator service that scrapes thousands of articles on a daily basis and groups them into common topics. 
+Thoro News - or simply Thoro - is a free news aggregator service that scrapes thousands of articles on a daily basis and groups them into common topics.
 
 It allows to understand what are the dominating conversations and themes around the media landscape as well as discovering articles that could otherwise be missed under traditional platforms for news consumption [i.e. Facebook, Apple News, Twitter, Reddit, etc).
 
@@ -41,7 +41,7 @@ Thoro was born out multiple needs that weren't met from other services, mainly:
 
 Frontend using [Bulma](https://bulma.io) + custom SCSS. Individual components can be checked [here](https://styleguide.thoro.news/?path=/story/card--default).
 
-Thoro is entirely written using Javascript. 
+Thoro is entirely written using Javascript.
 
 ### Architecture
 Thoro follows a microservice architecture pattern comrpised of a Nuxt.Js web app, a Node/Express API, two NodeJs scraping services (getter_1 & getter_2) and one data cruncher service.

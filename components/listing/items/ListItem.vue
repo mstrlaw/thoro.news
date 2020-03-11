@@ -13,8 +13,8 @@
               :href="'https://twitter.com/i/web/status/' + article.id_str"
               class="subtitle highlighted link yellow"
               target="_blank"
+              v-html="article.text"
             >
-              {{ article.text }}&nbsp;
               <small><Icon :icon="'open-in-new'"/></small>
             </a>
           </div>

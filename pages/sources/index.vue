@@ -31,15 +31,16 @@
                     :icon="'checkbox-blank-circle'"
                   />
                 </span>
-                <nuxt-link
+                <span>{{ source.domain }}</span>
+                <!--nuxt-link
                   :to="{
                     name: 'sources-domain',
                     params: { domain: source.domain }
                   }"
                   :class="'highlighted link red'"
                 >
-                  {{ source.domain }}
-                </nuxt-link>
+
+                </nuxt-link-->
               </div>
               <small class="inline-block">
                 <a

@@ -1,22 +1,8 @@
 <template>
-  <div v-if="tweets" class="card list-wrapper display-half">
+  <div v-if="tweets" class="card list-wrapper">
     <div class="top-section">
-      <div class="topics">
-        <span class="topic">
-          <Icon :icon="'twitter'" />&nbsp;&nbsp;Twittersphere
-        </span>
-      </div>
+      <div class="tag is-dark"><Icon :icon="'twitter'" />&nbsp;&nbsp;<b>Twittersphere</b></div>
     </div>
-    <h4 class="subtitle is-size-6 has-text-grey push-bottom-10">
-      What's said on
-      <a
-        href="http://twitter.com"
-        target="_blank"
-        class="highlighted link blue center-flex"
-      >
-        twitter.com<Icon :icon="'open-in-new'" />
-      </a>
-    </h4>
     <table class="table is-fullwidth article-list is-hoverable">
       <tbody>
         <tr v-for="tweet in tweets" :key="tweet.id">

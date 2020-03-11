@@ -1,6 +1,8 @@
-import Tooltip from 'tooltip.js'
+import moment from 'moment'
+import tippy from 'tippy.js'
 import { financialQuotes } from '@/mixins/financialQuotes'
 import { stringUtils } from '@/mixins/stringUtils'
+import { MAPPED_BIAS_LONGNAME } from '@/utilities/data'
 
 const formatters = {
   mixins: [financialQuotes, stringUtils],
@@ -37,10 +39,9 @@ const formatters = {
 
                 coin = word.symbol
 
-                tickerClass = `ticker-data crypto-ticker 
-                  ${word.topic} ${word.symbol}`
+                tickerClass = `ticker-data crypto-ticker ${word.topic} ${word.symbol}`
 
-                tickerEl = `<span class="is-tooltip ${tickerClass} data-title="Market Cap variation in the last 24h. Realtime data from Coincap.io" data-variation="" data-coin=${coin}>${coin} --</span>`
+                tickerEl = `<span class="is-tooltip ${tickerClass}" data-title="Market Cap variation in the last 24h. Realtime data from Coincap.io" data-variation="" data-coin=${coin}>${coin} --</span>`
 
                 break
 
@@ -64,9 +65,9 @@ const formatters = {
               const instances = []
               for (let i = 0; i < tooltips.length; i++) {
                 instances.push(
-                  new Tooltip(tooltips[i], {
-                    title: tooltips[i].getAttribute('data-title'),
-                    trigger: 'hover'
+                  tippy(tooltips[i], {
+                    content: tooltips[i].getAttribute('data-title')
+                    // trigger: 'hover'
                   })
                 )
               }
@@ -110,15 +111,20 @@ const formatters = {
               case 'cryptocurrency':
                 apiCalls.push({
                   type: 'crypto',
-                  symbol: word.symbol
+                  symbol: word.matchedWord.toLowerCase()
                 })
 
                 coin = word.symbol
 
-                tickerClass = `ticker-data crypto-ticker 
-                  ${word.topic} ${word.symbol}`
+                tickerClass = `ticker-data crypto-ticker ${word.topic} ${word.symbol} ${word.matchedWord}`
 
-                tickerEl = `<span class="is-tooltip ${tickerClass} data-title="Market Cap variation in the last 24h. Realtime data from Coincap.io" data-variation="" data-coin=${coin}>${coin} --</span>`
+                tickerEl = `
+                  <span
+                    class="is-tooltip ${tickerClass}"
+                    data-title='24h market cap variation. Data by <a class="has-text-info" href="https://coincap.io/"target="_blank">coincap.io</a>'
+                    data-variation="interact"
+                    data-coin=${coin}
+                  >${coin} --</span>`
 
                 break
 
@@ -134,16 +140,16 @@ const formatters = {
             treatedTitle = treatedTitle.replace(re, '$& ' + tickerEl + ' ')
 
             // Init tooltips
-            // setTimeout(() =>{
-            //   var tooltips = document.getElementsByClassName('is-tooltip')
-            //   for(let i=0; i<tooltips.length; i++){
-            //     new Tooltip(tooltips[i],{
-            //       title: tooltips[i].getAttribute('data-title'),
-            //       trigger: 'hover',
-            //       placement: 'bottom'
-            //     })
-            //   }
-            // }, 2000)
+            setTimeout(() => {
+              const tooltips = document.getElementsByClassName('is-tooltip')
+              for (let i = 0; i < tooltips.length; i++) {
+                tippy(tooltips[i], {
+                  content: tooltips[i].getAttribute('data-title'),
+                  arrow: false,
+                  interactive: true
+                })
+              }
+            }, 2000)
           }
         })
         if (apiCalls.length > 0) {
@@ -158,6 +164,18 @@ const formatters = {
         treatedTitle += '&nbsp;<small><i class="mdi mdi-open-in-new" /></small>'
       }
       return treatedTitle
+    },
+    publishDate(date) {
+      return moment(date).from(moment())
+    },
+    formatDate(date, format) {
+      return moment(date).format(format)
+    },
+    biasShortName(bias) {
+      return MAPPED_BIAS_LONGNAME[bias].shortname
+    },
+    biasLongName(bias) {
+      return MAPPED_BIAS_LONGNAME[bias].longname
     }
   }
 }

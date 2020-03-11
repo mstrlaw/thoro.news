@@ -5,25 +5,24 @@
 
 .card{
   border-radius: 4px;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   background: $gray-light;
   box-shadow: none;
-  
+
   .top-section{
     display: flex;
     justify-content: space-between;
-    margin-bottom: .5em;
+    margin: .5em 0;
     .topics{
       display: flex;
       justify-content: left;
-      
+
       .topic{
         display: flex;
         justify-content: center;
         align-items: center;
         text-decoration: none;
-        background: $white;
         border-radius: 4px;
         padding-bottom: calc(0.375em - 1px);
         padding-left: 0.75em;

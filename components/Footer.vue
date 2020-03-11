@@ -1,8 +1,15 @@
 <template>
   <div class="container">
     <footer class="simple-footer">
-      <!--div class="footer-links">
-        <nuxt-link
+      <div class="footer-links">
+        <div class="tag">
+          <b>{{ sourcesCount }} Sources</b>
+        </div>
+        <span>&nbsp;</span>
+        <div class="tag">
+          <b>{{ articlesCount }} Articles</b>
+        </div>
+        <!--nuxt-link
           :to="{ name: 'sources' }"
           class="highlighted link blue"
           v-text="'Sources'"
@@ -11,26 +18,28 @@
           :to="{ name: 'about' }"
           class="highlighted link blue"
           v-text="'About'"
-        />
-      </div-->
+        /-->
+
+      </div>
       <div class="status push-left-auto push-right-25">
         <span v-tooltip.position-top="appMessage">
-          <Icon :class="appClass" :icon="'checkbox-blank-circle'" />&nbsp;App
+          <Icon :class="appClass" :icon="'checkbox-blank-circle'" />
+          &nbsp;App&nbsp;
         </span>
         <span v-tooltip.position-top="getterMessage">
           <Icon
             :class="getterClass"
             :icon="'checkbox-blank-circle'"
-          />&nbsp;Getter
+          />&nbsp;Getter&nbsp;
         </span>
         <span v-tooltip.position-top="cruncherMessage">
           <Icon
             :class="cruncherClass"
             :icon="'checkbox-blank-circle'"
-          />&nbsp;Cruncher
+          />&nbsp;Cruncher&nbsp;
         </span>
       </div>
-      <span>Thoro News — {{ currentYear }}</span>
+      <span>Thoro News 2018 — {{ currentYear }}</span>
     </footer>
   </div>
 </template>
@@ -47,7 +56,9 @@ export default {
       getterClass: '',
       getterMessage: '',
       cruncherClass: '',
-      cruncherMessage: ''
+      cruncherMessage: '',
+      sourcesCount: 0,
+      articlesCount: 0
     }
   },
   computed: {
@@ -57,6 +68,7 @@ export default {
   },
   mounted() {
     this.loadStatus()
+    this.loadStats()
   },
   methods: {
     loadStatus() {
@@ -66,7 +78,6 @@ export default {
           format: 'json'
         })
         .then(res => {
-          // console.log(res)
           if (typeof res.data.monitors !== 'undefined') {
             res.data.monitors.map(monitor => {
               const status = monitor.status
@@ -102,6 +113,19 @@ export default {
               }
             })
           }
+        })
+    },
+    loadStats() {
+      this.$axios
+        .get('https://api.thoro.news/api/stats/badges/sources.json')
+        .then(res => {
+          this.sourcesCount = res.data.message
+        })
+
+      this.$axios
+        .get('https://api.thoro.news/api/stats/badges/articles.json')
+        .then(res => {
+          this.articlesCount = res.data.message
         })
     }
   }

@@ -1,5 +1,6 @@
 .mdi{
   height: 1rem;
+  width: 1rem;
 }
 
 .logo-wrapper{
@@ -24,7 +25,7 @@
   width: 100px;
   display: inline-flex;
   svg{
-    position: relative;  
+    position: relative;
     width: inherit;
   }
 
@@ -166,7 +167,7 @@
     position: absolute;
     bottom: 0;
     fill: $white;
-    -webkit-filter: drop-shadow( -5px 0px 8px rgba(0,0,0,.4) ); 
+    -webkit-filter: drop-shadow( -5px 0px 8px rgba(0,0,0,.4) );
                 filter: drop-shadow( -5px 0px 8px rgba(0,0,0,.4) );
   }
 

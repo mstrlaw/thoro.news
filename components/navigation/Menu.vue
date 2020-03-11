@@ -129,7 +129,9 @@
                 <small>Privacy</small>
               </nuxt-link>
               <br />
-              <small>THORO News — {{ currentYear }}</small>
+              <small>THORO News<br>
+                2018 — {{ currentYear }}
+              </small>
             </div>
           </div>
         </nav>

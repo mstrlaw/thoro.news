@@ -13,7 +13,7 @@ export default () => ({
   appLoading: true,
   navState: false,
   scrollPosition: 0,
-  currentDay: moment().startOf('day').toISOString(),
+  currentDay: moment().subtract(1, 'day').startOf('day').toISOString(),
   dashboardType: 'wall',
   currentCategory: 'world',
   showDashboardActions: true,
@@ -25,5 +25,9 @@ export default () => ({
   /*
     CHARTS
   */
-  maxDays: 30
+  maxDays: 30,
+  /*
+    CLUSTERS
+  */
+  clusters: []
 })

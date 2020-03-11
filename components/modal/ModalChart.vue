@@ -1,15 +1,15 @@
 <template>
   <div class="card chart-container">
-    <div class="top-section">
+    <!--div class="top-section">
       <div class="topics">
         <span class="topic">
           <Icon :icon="'bullhorn'" />&nbsp;Mentions
         </span>
       </div>
-    </div>
-    <h4 class="subtitle is-size-6 has-text-grey push-bottom-10">
+    </div-->
+    <!--h4 class="subtitle is-size-6 has-text-grey push-bottom-10">
       Clusters for "{{ theme }}" in the past 7 days
-    </h4>
+    </h4-->
 
     <LineChart
       :chart-id="'mentionsChart'"
