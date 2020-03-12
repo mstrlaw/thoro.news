@@ -13,7 +13,7 @@ export default () => ({
   appLoading: true,
   navState: false,
   scrollPosition: 0,
-  currentDay: moment().subtract(1, 'day').startOf('day').toISOString(),
+  currentDay: moment().startOf('day').toISOString(),
   dashboardType: 'wall',
   currentCategory: 'world',
   showDashboardActions: true,
