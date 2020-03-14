@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <footer class="simple-footer">
-      <div class="footer-links">
+    <footer class="c-Footer">
+
+      <div class="c-Footer__stats">
         <div class="tag">
           <b>{{ sourcesCount }} Sources</b>
         </div>
@@ -9,19 +10,9 @@
         <div class="tag">
           <b>{{ articlesCount }} Articles</b>
         </div>
-        <!--nuxt-link
-          :to="{ name: 'sources' }"
-          class="highlighted link blue"
-          v-text="'Sources'"
-        />
-        <nuxt-link
-          :to="{ name: 'about' }"
-          class="highlighted link blue"
-          v-text="'About'"
-        /-->
-
       </div>
-      <div class="status push-left-auto push-right-25">
+
+      <div class="c-Footer__status">
         <span v-tooltip.position-top="appMessage">
           <Icon :class="appClass" :icon="'checkbox-blank-circle'" />
           &nbsp;App&nbsp;
@@ -39,7 +30,11 @@
           />&nbsp;Cruncher&nbsp;
         </span>
       </div>
-      <span>Thoro News 2018 — {{ currentYear }}</span>
+
+      <div class="c-Footer__copyright">
+        <span>Thoro News 2018 — {{ currentYear }}</span>
+      </div>
+
     </footer>
   </div>
 </template>
@@ -131,3 +126,56 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/css/_variables.scss';
+
+.c-Footer {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  border-top: 1px solid $gray-dark;
+  padding: 1em;
+  color: $gray-darker;
+
+  > a:hover {
+    color: $gray-darker;
+  }
+
+  &__stats,
+  &__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__status {
+    display: flex;
+    margin-left: auto;
+    margin-right: 1em;
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @media #{$small} {
+    flex-direction: column;
+
+    &__stats,
+    &__status {
+      justify-content: flex-start;
+      width: 100%;
+      margin: .5em 0;
+    }
+
+    &__status {
+      margin-left: initial;
+    }
+
+    &__copyright {
+      justify-content: space-between;
+    }
+  }
+}
+</style>

@@ -70,7 +70,8 @@ module.exports = {
     '@/plugins/rollbar',
     { src: '@/plugins/init', ssr: false },
     { src: '@/plugins/ga', ssr: false },
-    { src: '@/plugins/hotjar', ssr: false }
+    { src: '@/plugins/hotjar', ssr: false },
+    { src: '@/plugins/vue-hammerjs', ssr: false }
   ],
   /**
     Toast config

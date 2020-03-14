@@ -32,7 +32,7 @@
       </div>
 
       <div :class="displayArticles ? '' : 'd-none'" class="column">
-        <div class="card list-wrapper scrollable">
+        <div class="c-Card list-wrapper scrollable">
           <div
             :class="expandedArticles ? 'expanded-list' : ''"
             class="list-container"

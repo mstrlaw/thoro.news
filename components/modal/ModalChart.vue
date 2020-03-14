@@ -1,5 +1,5 @@
 <template>
-  <div class="card chart-container">
+  <div class="c-Card chart-container">
     <!--div class="top-section">
       <div class="topics">
         <span class="topic">

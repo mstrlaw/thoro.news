@@ -8,38 +8,47 @@
         :style="{
           'background-image': 'url(' + cleanMediaURL + ')',
         }"
-        class="c-ArticleItem--media"
+        class="c-ArticleItem__media"
       />
       <div
         v-else
-        class="c-ArticleItem--noMedia"
+        class="c-ArticleItem__noMedia"
       >
         <Icon :icon="'image-off'" />
       </div>
     </div>
-    <div class="c-ArticleItem--body">
+    <div class="c-ArticleItem__body">
       <div class="c-ArticleHeader">
+        <a
+          v-if="isMobile"
+          :href="url"
+          class="c-ArticleHeader--titleLink"
+        >
+          <span v-html="articleTitle(article)" />
+          <Icon :icon="'open-in-new'" />
+        </a>
         <p
+          v-else
           class="c-ArticleHeader--title"
           v-html="articleTitle(article)"
         />
-        &nbsp;
         <a
+          v-if="!isMobile"
           :href="url"
           class="cta button is-small is-white shadow"
           target="_blank"
-        >Read&nbsp;<Icon :icon="'open-in-new'" />
+        >&nbsp;Read&nbsp;<Icon :icon="'open-in-new'" />
         </a>
       </div>
       <div class="c-ArticleDescription">
         <p>{{ trimmedDescription }}</p>
       </div>
-      <div class="c-ArticleItem--meta">
-        <small class="c-ArticleItem--metaData c-ArticleItem--source">
+      <div class="c-ArticleItem__meta">
+        <small class="c-ArticleItem__metaData c-ArticleItem__source">
           <Icon :icon="'newspaper'" />
           {{ domain }}
         </small>
-        <small class="c-ArticleItem--metaData c-ArticleItem--bias">
+        <small class="c-ArticleItem__metaData c-ArticleItem__bias">
           <div
             v-tooltip.top="`Bias: ${biasLongName(bias)}`"
             class="tag"
@@ -47,7 +56,7 @@
             {{ biasShortName(bias) }}
           </div>
         </small>
-        <small class="c-ArticleItem--metaData">
+        <small class="c-ArticleItem__metaData">
           <Icon :icon="'clock-outline'" />
           <time
             v-tooltip.top="formatDate(articlePublishDate, 'MMM. Do, YYYY HH:mm')"
@@ -63,6 +72,7 @@
 
 <script>
 import { formatters } from '@/mixins/formatters'
+import { BREAKPOINTS } from '@/utilities/breakpoints'
 
 export default {
   name: 'ArticleItem',
@@ -113,10 +123,11 @@ export default {
       default: ''
     }
   },
+  data: () => ({
+    displayMedia: true,
+    isMobile: false
+  }),
   computed: {
-    displayMedia() {
-      return true
-    },
     hasMedia() {
       if (
         this.urlToMedia !== '' &&
@@ -139,8 +150,29 @@ export default {
       return this.description.length > 150 ? `${this.description.slice(0, 147)}...` : this.description
     }
   },
+  created() {
+    if (process.client) {
+      window.addEventListener('resize', this.triggerResponsiveChanges)
+    }
+  },
+  destroyed() {
+    if (process.client) {
+      window.removeEventListener('resize', this.triggerResponsiveChanges)
+    }
+  },
+  mounted() {
+    this.triggerResponsiveChanges()
+  },
   methods: {
-
+    triggerResponsiveChanges() {
+      if (window.innerWidth <= BREAKPOINTS.SMALL) {
+        this.displayMedia = false
+        this.isMobile = true
+      } else {
+        this.displayMedia = true
+        this.isMobile = false
+      }
+    }
   }
 }
 </script>
@@ -163,8 +195,8 @@ export default {
     }
   }
 
-  &--media,
-  &--noMedia {
+  &__media,
+  &__noMedia {
     width: 120px;
     height: auto;
     min-height: 120px;
@@ -172,13 +204,13 @@ export default {
     margin-right: .5em;
   }
 
-  &--media {
+  &__media {
     display: block;
     background-size: cover;
     border-radius: 2px;
   }
 
-  &--noMedia {
+  &__noMedia {
     display: flex;
     align-items: center;
     background: #FFF;
@@ -187,35 +219,43 @@ export default {
     }
   }
 
-  &--body {
+  &__body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
   }
 
-  &--meta,
-  &--metaData {
+  &__meta,
+  &__metaData {
     display: flex;
     align-items: center;
     margin-right: .5em;
   }
 
-  &--meta {
+  &__meta {
     margin-top: auto;
-  }
-
-  &--metaData {
-    .mdi {
-      margin-right: .2em;
+    @media #{$small} {
+      margin-top: .5em;
     }
   }
 
-  &--source,
-  &--bias {
+  &__metaData {
+    .mdi {
+      margin-right: .2em;
+    }
+    @media #{$small} {
+      &:last-of-type {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__source,
+  &__bias {
     font-weight: bold;
   }
-  &--bias {
+  &__bias {
     .tag {
       max-width: 24px;
       background-color: $gray-dark;
@@ -230,10 +270,18 @@ export default {
   display: flex;
   justify-content: space-between;
 
-  &--title {
+  &--title,
+  &--titleLink {
     font-size: 1.2em;
     font-weight: bold;
     line-height: 1.1em;
+  }
+  &--titleLink {
+    color: darken($blue, 10%);
+    padding-bottom: .5em;
+    &:hover {
+      color: $blue;
+    }
   }
 }
 </style>

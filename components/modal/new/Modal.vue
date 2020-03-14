@@ -15,25 +15,43 @@
     <div class="c-ModalBody">
       <div
         ref="articlesPanel"
-        class="c-ModalSection--articles"
+        class="c-ModalSection__mainSection"
       >
         <div class="c-ModalSection--topSection">
           <div class="tag is-dark"><Icon :icon="'newspaper'" />&nbsp;&nbsp;<b>Articles</b></div>
         </div>
-        <ArticleItem
-          v-for="(article, index) in articles"
-          :key="index"
-          :article="article"
-          :title="article.title"
-          :description="article.description"
-          :domain="article.domain"
-          :url="article.url"
-          :url-to-media="article.urlToMedia"
-          :article-publish-date="article.articlePublishDate"
-          :bias="article.bias"
-          :factual="article.factual"
-        />
-        <div class="c-Social">
+        <div
+          :class="articlesWrapperClassObject"
+          class="c-ModalSection__mainSection--articlesWrapper"
+        >
+          <ArticleItem
+            v-for="(article, index) in articles"
+            :key="index"
+            :article="article"
+            :title="article.title"
+            :description="article.description"
+            :domain="article.domain"
+            :url="article.url"
+            :url-to-media="article.urlToMedia"
+            :article-publish-date="article.articlePublishDate"
+            :bias="article.bias"
+            :factual="article.factual"
+          />
+          <div class="c-ModalSection__mainSection--action">
+            <a
+              v-if="collapsedArticles"
+              href="#"
+              class="cta button is-small is-primary shadow"
+              @click.prevent="expandArticles"
+            >
+              View all {{ articles.length }} articles
+            </a>
+          </div>
+        </div>
+        <div
+          v-if="!isMobile"
+          class="c-Social"
+        >
           <TwitterList :tweets="clusterTweets" />
         </div>
       </div>
@@ -105,6 +123,12 @@
             />
           </div>
         </div>
+        <div
+          v-if="isMobile"
+          class="c-Social--mobile"
+        >
+          <TwitterList :tweets="clusterTweets" />
+        </div>
         <!--div
           ref="socialMediaPanel"
           class="c-ModalSection__panel"
@@ -130,6 +154,8 @@ import SourceItem from '@/components/modal/new/SourceItem'
 
 import ModalChart from '@/components/modal/ModalChart'
 import TwitterList from '@/components/listing/TwitterList'
+
+import { BREAKPOINTS } from '@/utilities/breakpoints'
 
 import { mapGetters } from 'vuex'
 
@@ -169,6 +195,8 @@ export default {
     }
   },
   data: () => ({
+    isMobile: false,
+    collapsedArticles: false,
     //  Articles data
     avgSentiment: 0.5,
     sources: [],
@@ -360,6 +388,11 @@ export default {
           }
         }
       }
+    },
+    articlesWrapperClassObject() {
+      return {
+        isCollapsed: this.collapsedArticles
+      }
     }
   },
   watch: {
@@ -443,6 +476,19 @@ export default {
         }
       ]
     }
+  },
+  created() {
+    if (process.client) {
+      window.addEventListener('resize', this.triggerResponsiveChanges)
+    }
+  },
+  destroyed() {
+    if (process.client) {
+      window.removeEventListener('resize', this.triggerResponsiveChanges)
+    }
+  },
+  mounted() {
+    this.triggerResponsiveChanges()
   },
   methods: {
     activePanel(panel) {
@@ -555,6 +601,18 @@ export default {
       //  Update article sources list
       sources.sort((a, b) => { return b.count - a.count })
       this.sources = sources
+    },
+    expandArticles() {
+      this.collapsedArticles = false
+    },
+    triggerResponsiveChanges() {
+      if (window.innerWidth <= BREAKPOINTS.SMALL) {
+        this.isMobile = true
+        this.collapsedArticles = true
+      } else {
+        this.isMobile = false
+        this.collapsedArticles = false
+      }
     }
   }
 }
@@ -615,11 +673,37 @@ export default {
     background: $gray-light;
   }
 
-  &--articles {
+  &__mainSection {
     @extend .c-ModalSection;
+    position: relative;
     padding: .5em 0 .5em .5em;
     // background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGUlEQVQIW2NkYGD4z8DAwMiABFA4MHEKBQFmoAEGdnHj3wAAAABJRU5ErkJggg==);
     // background-repeat: repeat;
+
+    &--action {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: .5em 1em;
+      bottom: 0;
+      background: $white;
+      width: 100%;
+      box-shadow: 0px -10px 15px 0px rgba(255,255,255,1);
+    }
+
+    @media #{$medium} {
+      &--articlesWrapper {
+        &.isCollapsed {
+          overflow: hidden;
+          max-height: 450px;
+          overflow: hidden;
+        }
+      }
+    }
+    @media #{$small} {
+      padding: .5em;
+    }
   }
 
   &__subNav {
@@ -736,6 +820,11 @@ export default {
 
 .c-Social {
   margin-top: .5em;
+
+  &--mobile {
+    @extend .c-Social;
+    padding: 0 .5em;
+  }
 }
 
 .c-Sources {

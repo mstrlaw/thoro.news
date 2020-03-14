@@ -13,7 +13,7 @@
     <div class="container">
       <div class="columns">
         <div class="column is-12">
-          <div class="card">
+          <div class="c-Card">
             <div class="top-section">
               <div class="topics">
                 <span class="topic">

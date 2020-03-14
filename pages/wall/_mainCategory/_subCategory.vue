@@ -30,7 +30,7 @@
         </div>
         <!-- right side column -->
         <div class="column">
-          <div class="card">
+          <div class="c-Card">
             <div class="top-section">
               <div class="topics">
                 <span class="topic">

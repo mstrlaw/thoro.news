@@ -1,5 +1,9 @@
 <template>
-  <div v-if="articles" :class="extraClasses" class="card list-wrapper">
+  <div
+    v-if="articles"
+    :class="extraClasses"
+    class="c-Card list-wrapper"
+  >
     <div v-if="source !== ''" class="top-section">
       <div class="topics">
         <span v-if="source === 'medium'" class="topic">

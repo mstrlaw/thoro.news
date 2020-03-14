@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tweets" class="card list-wrapper">
+  <div v-if="tweets" class="c-Card list-wrapper">
     <div class="top-section">
       <div class="tag is-dark"><Icon :icon="'twitter'" />&nbsp;&nbsp;<b>Twittersphere</b></div>
     </div>

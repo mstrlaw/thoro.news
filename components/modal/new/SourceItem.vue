@@ -122,6 +122,11 @@ export default {
   &:last-of-type {
     margin-bottom: 3.5em;
   }
+  @media #{$small} {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 
   &:nth-of-type(2n) {
     #{$parent}--header {

@@ -1,5 +1,5 @@
 <template>
-  <div id="videoPlayer" class="video-player card">
+  <div id="videoPlayer" class="video-player c-Card">
     <div class="top-section">
       <div class="topics w-100">
         <v-popover offset="16" class="topic">

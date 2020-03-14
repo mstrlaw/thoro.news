@@ -2,7 +2,7 @@
   .header{
     border-bottom: 1px solid $gray-dark;
     margin-bottom: 15px;
-    
+
     h1, h2, h3, h4, h5, h6{
       font-weight: 600;
     }
@@ -16,25 +16,6 @@
           width: 100%;
           text-align: center;
         }
-      }
-    }
-  }
-  .theme-cloud{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px 5px;
-    .tag{
-      margin: 0 4px 4px 0;
-      &.is-huge{
-        font-size: 1.25rem;
-      }
-      &:last-child(){
-        margin-right: auto;
       }
     }
   }

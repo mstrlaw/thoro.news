@@ -48,7 +48,8 @@ $xsmall:    "only screen and (max-width : "+ $xsmall-size +")";
 $small:     "only screen and (max-width : "+ $small-size +")";
 $medium:    "only screen and (max-width : "+ $medium-size +")";
 $large:     "only screen and (max-width : "+ $large-size +")";
-$xlarge:     "only screen and (min-width : "+ $xlarge-size +")";
+$xlarge:    "only screen and (min-width : "+ $xlarge-size +")";
+
 /* Rewrite Bulma sizes */
 $gap: 0px;
 $tablet:  $small-size;

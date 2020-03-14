@@ -6,7 +6,7 @@
       'main-section': mainSection,
       cluster: !mainSection
     }"
-    class="card"
+    class="c-Card"
   >
     <div class="top-section">
       <div class="topics">
@@ -71,7 +71,7 @@
         </span>
       </li>
     </ul>
-    <div class="footer card-bottom">
+    <div class="card-footer card-bottom">
       <div class="cta-area">
         <a
           href="#"

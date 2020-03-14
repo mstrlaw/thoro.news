@@ -3,7 +3,7 @@
   flex-wrap: wrap;
 }
 
-.card{
+.c-Card{
   border-radius: 4px;
   padding: 10px 20px;
   border: none;
@@ -52,6 +52,7 @@
     .title{
       display: inline;
       margin-bottom: 0;
+
       &:hover{
         color: $black;
       }
@@ -91,7 +92,10 @@
     }
   }
 
-  .footer{
+  .card-footer {
+    display: block;
+    border-top: none;
+    margin-top: auto;
     .chart{
       padding-top: 55px;
       polyline{
@@ -128,14 +132,9 @@
       opacity: .5;
       color: transparent;
       &:after{
-        display: block;
         content: '';
+        display: block;
         background: #dddddd;
-        // background-image: -webkit-gradient(linear,  left center,  right center,  from(#dddddd),  color-stop(.2,  #f5f5f5),  color-stop(.4,  #e5e5e5),  to(#dddddd));
-        // background-image: -webkit-linear-gradient(left,  #dddddd 0%,  #f5f5f5 20%,  #e5e5e5 40%,  #dddddd 100%);
-        // background-image: -moz-gradient(linear,  left center,  right center,  from(#dddddd),  color-stop(.2,  #f5f5f5),  color-stop(.4,  #e5e5e5),  to(#dddddd));
-        // background-image: -moz-linear-gradient(left,  #dddddd 0%,  #f5f5f5 20%, #e5e5e5 40%, #dddddd 100%);
-        // background-repeat: no-repeat;
         background: linear-gradient(270deg, #E2DFDF, #EEEEEE);
         background-repeat: no-repeat;
         background-size: 800px 104px;
@@ -205,10 +204,6 @@
     margin: 10px auto;
     display: flex;
     flex-direction: column;
-
-    .footer{
-      margin-top: auto;
-    }
 
     @media #{$xlarge} {
       width: 49%;

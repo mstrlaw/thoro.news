@@ -21,38 +21,3 @@
     }
   }
 }
-
-.simple-footer{
-  display: flex;
-  justify-content: flex-start;
-  border-top: 1px solid $gray-dark;
-  padding: 15px 0;
-
-  color: $gray-darker;
-  > a:hover {
-    color: $gray-darker;
-  }
-
-  .footer-links{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    a{
-      margin-left: 15px;
-      &:hover {
-        color: $gray-darker;
-      }
-    }
-  }
-
-  .status{
-    display: flex;
-    span{
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-
-
