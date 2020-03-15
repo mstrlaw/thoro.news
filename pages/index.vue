@@ -1,60 +1,41 @@
 <template>
   <div class="page">
     <div class="container">
-      <div class="columns push-top-5">
-        <!-- main column -->
-        <div class="column is-widescreen">
-          <div class="header">
-            <h4 v-text="`Trending Headlines for ${ selectedDay }`" />
-          </div>
-        </div>
+      <div class="header">
+        <h4 v-text="`Trending Headlines for ${ selectedDay }`" />
       </div>
     </div>
-    <div class="container">
-      <div class="columns">
-        <div class="column is-12">
-          <div class="c-Card">
-            <div class="top-section">
-              <div class="topics">
-                <span class="topic">
-                  <Icon :icon="'chart-line-variant'" />&nbsp;
-                  <span class="topic-label" v-text="'Trending'" />
-                </span>
-              </div>
-            </div>
-            <ThemeCloud :themes="themeCloud" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="columns">
-        <!-- main column -->
-        <div class="column is-12">
-          <div class="cards-wrapper">
-            <Card
-              v-for="(cluster, index) in featuredClusters"
-              :key="cluster._id"
-              :cluster-data="cluster"
-              :should-load-data="shouldLoadData"
-              :main-section="index === 0"
-            />
-            <!--div class="section-cta">
-              <nuxt-link
-                :to="{
-                  name: 'trends-mainCategory',
-                  params: { mainCategory: currentCategory }
-                }"
-                href="#"
-                class="button is-primary shadow"
-                v-text="'View more'"
-              />
-            </div-->
-          </div>
 
+    <div class="container">
+      <div class="column">
+        <div class="c-Card">
+          <div class="top-section">
+            <div class="topics">
+              <span class="topic">
+                <Icon :icon="'chart-line-variant'" />&nbsp;
+                <span class="topic-label" v-text="'Trending'" />
+              </span>
+            </div>
+          </div>
+          <ThemeCloud :themes="themeCloud" />
         </div>
       </div>
     </div>
+
+    <div class="container">
+      <div class="column">
+        <div class="cards-wrapper">
+          <Card
+            v-for="(cluster, index) in featuredClusters"
+            :key="cluster._id"
+            :cluster-data="cluster"
+            :should-load-data="shouldLoadData"
+            :main-section="index === 0"
+          />
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 

@@ -12,7 +12,10 @@
       :sentiment="avgSentiment"
     />
 
-    <div class="c-ModalBody">
+    <div
+      ref="modalBody"
+      class="c-ModalBody"
+    >
       <div
         ref="articlesPanel"
         class="c-ModalSection__mainSection"
@@ -398,12 +401,12 @@ export default {
   watch: {
     dialogState(isVisible) {
       if (isVisible) {
-        this.$refs.articlesPanel.scrollTop = 0
-        this.$refs.dataPanel.scrollTop = 0
+        this.scrollToTop()
       }
     },
     articles(articles) {
       this.crunchArticleData(articles)
+      this.scrollToTop()
     },
     clusterTrendData(data) {
       const startDate = moment().subtract(7, 'days')
@@ -613,6 +616,11 @@ export default {
         this.isMobile = false
         this.collapsedArticles = false
       }
+    },
+    scrollToTop() {
+      this.$refs.modalBody.scrollTop = 0
+      this.$refs.articlesPanel.scrollTop = 0
+      this.$refs.dataPanel.scrollTop = 0
     }
   }
 }

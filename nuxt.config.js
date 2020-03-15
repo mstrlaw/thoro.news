@@ -8,7 +8,7 @@ module.exports = {
     title: 'Thoro News Aggregator',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
       {
         hid: 'description',
         name: 'description',
@@ -106,7 +106,7 @@ module.exports = {
     short_name: 'Thoro',
     description:
       'Thoro is an unbiased news aggregator scouring throusands of daily articles and delivering them in a consumable way.',
-    start_url: '/wall/world',
+    start_url: '/',
     theme_color: '#ffffff',
     background_color: '#ffffff',
     display: 'standalone',

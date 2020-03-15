@@ -1,11 +1,7 @@
 <template>
   <div :class="layoutClassObject">
     <Navigation />
-    <div class="content-area">
-      <div class="inner-content">
-        <nuxt />
-      </div>
-    </div>
+    <nuxt />
     <Footer />
     <Modal />
   </div>
@@ -27,10 +23,10 @@ export default {
     return {
       htmlAttrs: {
         class: `${this.dialogClass}`
-      },
-      bodyAttrs: {
-        class: `has-navbar-fixed-top ${this.dialogClass}`
       }
+      // bodyAttrs: {
+      //   class: `has-navbar-fixed-top ${this.dialogClass}`
+      // }
     }
   },
   computed: {

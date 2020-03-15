@@ -2,7 +2,7 @@
   <div
     id="searchResults"
     :class="{ visible: searchResults.length > 0 || emptyResults }"
-    class="search-results"
+    class="c-Navigation__searchResults"
   >
     <div v-if="!emptyResults" class="headlines m-0 p-0">
       <div class="result-stats">

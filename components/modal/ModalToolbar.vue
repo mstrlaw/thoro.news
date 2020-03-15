@@ -277,6 +277,8 @@ export default {
     span.action {
       display: flex;
       align-items: center;
+      justify-content: center;
+      min-width: 3.25rem;
       height: 3.25rem;
       padding: .7em;
 
