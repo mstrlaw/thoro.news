@@ -1,8 +1,9 @@
 <template>
-  <div class="c-Navigation">
+  <div :class="navigationClassObject">
     <Menu />
     <div class="c-Navigation__innerSection">
       <nuxt-link
+        v-if="!isMobile"
         :to="{ name: 'index' }"
         class="logo"
       >
@@ -11,16 +12,33 @@
         </div>
       </nuxt-link>
 
-      <a href="" class="button menu-toggle" @click.prevent="toggleMenu">
+      <a
+        href="#"
+        class="button menu-toggle"
+        @click.prevent="toggleMenu"
+      >
         <Icon :icon="'menu'" />
         <b>&nbsp;Sections</b>
       </a>
 
+      <nuxt-link
+        v-if="isMobile"
+        :to="{ name: 'index' }"
+        class="logo"
+      >
+        <div class="c-Navigation__logo">
+          <Logo />
+        </div>
+      </nuxt-link>
+
       <div class="c-Navigation__rightSection">
         <div
           v-if="showOrderAction"
-          :class="{ 'is-active': openFilter }"
-          class="dropdown is-right"
+          :class="{
+            'is-active': openFilter,
+            'is-right': !isMobile
+          }"
+          class="dropdown"
         >
           <div class="dropdown-trigger">
             <button
@@ -157,6 +175,7 @@
 <script>
 import Menu from '@/components/navigation/Menu'
 import NavigationResults from '@/components/navigation/NavigationResults'
+import { responsive } from '@/mixins/responsive'
 import { mapGetters } from 'vuex'
 import debounce from 'lodash/debounce'
 const debounceTimout = 300
@@ -167,15 +186,14 @@ export default {
     Menu,
     NavigationResults
   },
-  data() {
-    return {
-      openFilter: false,
-      loadingResults: false,
-      emptyResults: false,
-      searchQuery: '',
-      searchResults: []
-    }
-  },
+  mixins: [ responsive ],
+  data: () => ({
+    openFilter: false,
+    loadingResults: false,
+    emptyResults: false,
+    searchQuery: '',
+    searchResults: []
+  }),
   computed: {
     ...mapGetters({
       sortOption: 'topicSortOption',
@@ -190,6 +208,14 @@ export default {
     },
     hasQueryTerm() {
       return this.searchQuery.length > 0
+    },
+    navigationClassObject() {
+      return [
+        'c-Navigation',
+        {
+          'c-Navigation--mobile': this.isMobile
+        }
+      ]
     }
   },
   watch: {
@@ -252,6 +278,7 @@ export default {
 @import '@/assets/css/_variables.scss';
 
 .c-Navigation {
+  $parent: &;
   position: fixed;
   top: 0;
   left: 0;
@@ -259,6 +286,20 @@ export default {
   background: $gray-dark;
   width: 100vw;
   z-index: 99;
+
+  &--mobile {
+
+    #{$parent}__innerSection {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+    #{$parent}__rightSection {
+      margin-left: initial;
+    }
+    #{$parent}__logo {
+      transform: translateX(25px);
+    }
+  }
 
   &__innerSection {
     position: relative;

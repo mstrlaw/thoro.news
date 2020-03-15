@@ -11,7 +11,6 @@
 import Navigation from '@/components/navigation/Navigation'
 import Modal from '@/components/modal/new/Modal'
 import Footer from '@/components/Footer'
-import { BREAKPOINTS } from '@/utilities/breakpoints'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -26,9 +25,6 @@ export default {
   }),
   head() {
     return {
-      htmlAttrs: {
-        class: `${this.dialogClass}`
-      },
       bodyAttrs: {
         class: `has-navbar-fixed-top ${this.dialogClass}`
       }
@@ -50,28 +46,6 @@ export default {
   watch: {
     $route: function () {
       this.$store.dispatch('setNavigationState', false)
-    }
-  },
-  created() {
-    if (process.client) {
-      window.addEventListener('resize', this.triggerResponsiveChanges)
-    }
-  },
-  destroyed() {
-    if (process.client) {
-      window.removeEventListener('resize', this.triggerResponsiveChanges)
-    }
-  },
-  mounted() {
-    this.triggerResponsiveChanges()
-  },
-  methods: {
-    triggerResponsiveChanges() {
-      if (window.innerWidth <= BREAKPOINTS.SMALL) {
-        this.isMobile = true
-      } else {
-        this.isMobile = false
-      }
     }
   }
 }

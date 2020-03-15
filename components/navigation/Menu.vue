@@ -1,6 +1,9 @@
 <template>
   <div
-    :class="{ 'show-nav': isActive }"
+    :class="{
+      'show-nav': isActive,
+      'isMobile': isMobile
+    }"
     class="nav-wrapper"
     @click.prevent="toggleMenu"
   >
@@ -140,9 +143,11 @@
 <script>
 import Cookie from 'js-cookie'
 import moment from 'moment'
+import { responsive } from '@/mixins/responsive'
 
 export default {
   name: 'Menu',
+  mixins: [ responsive ],
   data() {
     return {
       isLarge: true
