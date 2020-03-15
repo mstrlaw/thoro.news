@@ -178,10 +178,6 @@ export default {
       if (typeof cluster !== 'undefined') {
         this.openClusterDialog(cluster)
       }
-
-      // .then(() => {
-      //   document.getElementsByClassName('dialog-body')[0].scrollIntoView()
-      // })
     },
     openClusterDialog(clusterData) {
       this.$store
@@ -196,7 +192,6 @@ export default {
           this.$store.dispatch('modal/saveClusterArticles', articles)
           this.$store.dispatch('modal/saveSelectedArticle', articles[0])
           this.$store.dispatch('modal/saveSelectedCluster', clusterData)
-          this.$store.dispatch('saveScrollPosition', window.pageYOffset)
 
           this.$store
             .dispatch('api/GET_TWEETS', clusterData.mainTheme[0])
@@ -230,14 +225,13 @@ export default {
         })
     },
     closeDialog() {
+      document.getElementsByTagName('body')[0].classList.remove('open-modal')
+      window.scrollTo(0, this.scrollPos)
+
       this.$store.dispatch('modal/saveDialogState', false)
       this.$store.dispatch('modal/saveClusterTweets', [])
       this.$store.dispatch('modal/saveClusterTrendData', [])
       this.$store.commit('modal/resetSelectedCluster')
-
-      setTimeout(() => {
-        window.scrollTo(0, this.scrollPos)
-      }, 0)
     }
   }
 }

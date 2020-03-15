@@ -400,6 +400,8 @@ export default {
   watch: {
     dialogState(isVisible) {
       if (isVisible) {
+        // document.body.style.position = 'fixed'
+        // document.body.style.top = `-${this.scrollPos}px`
         this.scrollToTop()
       }
     },
@@ -617,7 +619,7 @@ export default {
       }
     },
     scrollToTop() {
-      this.$refs.modalBody.scrollTop = 0
+      // this.$refs.modalBody.scrollTop = 0
       this.$refs.articlesPanel.scrollTop = 0
       this.$refs.dataPanel.scrollTop = 0
     }

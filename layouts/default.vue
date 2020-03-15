@@ -11,6 +11,7 @@
 import Navigation from '@/components/navigation/Navigation'
 import Modal from '@/components/modal/new/Modal'
 import Footer from '@/components/Footer'
+import { mapGetters } from 'vuex'
 
 export default {
   middleware: ['navigation'],
@@ -30,8 +31,11 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      dialogState: 'modal/dialogState'
+    }),
     dialogClass() {
-      return this.$store.getters['modal/dialogState'] ? 'open-modal' : ''
+      return this.dialogState ? 'open-modal' : ''
     },
     layoutClassObject() {
       return {

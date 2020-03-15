@@ -27,3 +27,8 @@ html, body{
   background: $white;
 }
 
+body {
+  &.open-modal {
+    position: fixed;
+  }
+}
