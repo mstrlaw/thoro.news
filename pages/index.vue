@@ -1,8 +1,11 @@
 <template>
   <div class="page">
+
     <div class="container">
-      <div class="header">
-        <h4 v-text="`Trending Headlines for ${ selectedDay }`" />
+      <div class="column">
+        <div class="o-PageHeader">
+          <h4 v-text="`Headlines for ${ selectedDay }`" />
+        </div>
       </div>
     </div>
 

@@ -60,6 +60,15 @@ a, .is-link{
   }
 }
 
+.text-link{
+  color: $blue-dark;
+  transition: color .2s;
+  &:hover{
+    color: $blue-darker!important;
+    transition: color .2s;
+  }
+}
+
 .highlighted{
   display: inline;
   padding: 0 2px;
@@ -83,9 +92,9 @@ a, .is-link{
       align-items: center;
     }
     &.blue{
-      -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue, $link-opacity-top);
-      -moz-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue, $link-opacity-top);
-      box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue, $link-opacity-top);
+      -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue-dark, $link-opacity-top);
+      -moz-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue-dark, $link-opacity-top);
+      box-shadow: inset 0px $link-shadow-top 0px 0px rgba($blue-dark, $link-opacity-top);
     }
     &.green{
       -webkit-box-shadow: inset 0px $link-shadow-top 0px 0px rgba($green, $link-opacity-top);
@@ -110,9 +119,9 @@ a, .is-link{
     &:hover{
       transition: box-shadow .2s;
       &.blue{
-        -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue, $link-opacity-bottom);
-        -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue, $link-opacity-bottom);
-        box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue, $link-opacity-bottom);
+        -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue-dark, $link-opacity-bottom);
+        -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue-dark, $link-opacity-bottom);
+        box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($blue-dark, $link-opacity-bottom);
       }
       &.green{
         -webkit-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($green, $link-opacity-bottom);
@@ -134,10 +143,10 @@ a, .is-link{
         -moz-box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($yellow, $link-opacity-bottom);
         box-shadow: inset 0px $link-shadow-bottom 0px 0px rgba($yellow, $link-opacity-bottom);
       }
-    }  
+    }
   }
 
-  
+
 
   &.skewed{
     transform: skew(5deg);
@@ -178,9 +187,9 @@ a, .is-link{
       box-shadow: inset 0px -5px 0 transparent;
     }
     &.blue{
-      -webkit-box-shadow: 0px 5px 0px 0px rgba($blue, .5);
-      -moz-box-shadow: 0px 5px 0px 0px rgba($blue, .5);
-      box-shadow: 0px 5px 0px 0px rgba($blue, .5);
+      -webkit-box-shadow: 0px 5px 0px 0px rgba($blue-dark, .5);
+      -moz-box-shadow: 0px 5px 0px 0px rgba($blue-dark, .5);
+      box-shadow: 0px 5px 0px 0px rgba($blue-dark, .5);
     }
     &.green{
       -webkit-box-shadow: 0px 5px 0px 0px rgba($green, .5);

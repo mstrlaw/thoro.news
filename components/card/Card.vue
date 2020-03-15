@@ -32,17 +32,18 @@
     </h3>
 
     <div class="source-content">
+      <b>{{ mainArticle.domain }}</b>
       <span
         v-tooltip.bottom="
           formatDate(mainArticle.articlePublishDate, 'MMM. Do, YYYY HH:mm')
         "
+        class="highlighted link red"
       >
         <time
           :datetime="mainArticle.articlePublishDate"
           v-text="publishDate(mainArticle.articlePublishDate)"
         />
       </span>
-      by <b>{{ mainArticle.domain }}</b>
     </div>
 
     <ul class="headlines">
@@ -58,15 +59,16 @@
           </a>
         </span>
         <span class="source-content">
-          <small>
+          <small class="push-top-3">
+            <b>{{ article.domain }}</b>
             <time
               v-tooltip.bottom="
                 formatDate(article.articlePublishDate, 'MMM. Do, YYYY HH:mm')
               "
               :datetime="article.articlePublishDate"
+              class="highlighted link red"
               v-text="publishDate(article.articlePublishDate)"
             />
-            by <b>{{ article.domain }}</b>
           </small>
         </span>
       </li>
@@ -75,7 +77,7 @@
       <div class="cta-area">
         <a
           href="#"
-          class="cta button is-white shadow"
+          class="c-Button button shadow text-link"
           @click.prevent="openDialog(mainArticle._id)"
           v-text="'Explore'"
         />

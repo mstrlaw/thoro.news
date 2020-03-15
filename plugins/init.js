@@ -4,7 +4,7 @@ import moment from 'moment'
 window.onNuxtReady(() => {
   if (process.browser && process.env.NODE_ENV === 'production') {
     console.log(
-      '******\n Startup @' + moment().format('HH:mm:ss') + '\n****** (v0.8)'
+      '******\n Startup @' + moment().format('HH:mm:ss') + '\n****** (v1.0)'
     )
     console.log(
       '%c\n\n\n\n\n\n\n\n\n\n\n\

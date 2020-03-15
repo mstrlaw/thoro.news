@@ -39,7 +39,10 @@
             :bias="article.bias"
             :factual="article.factual"
           />
-          <div class="c-ModalSection__mainSection--action">
+          <div
+            v-if="displayViewAllAction"
+            class="c-ModalSection__mainSection--action"
+          >
             <a
               v-if="collapsedArticles"
               href="#"
@@ -174,7 +177,16 @@ const MAPPED_BIAS_SHORTNAME = {
   'LC': 'Left Center'
 }
 
-const chartColors = ['#26276F', '#404189', '#595AA2', '#7374BC', '#8C8DD5', '#A5A6EE', '#BFC0FF', '#D9DAFF', '#F2F3FF']
+const chartColors = [
+  '#1969D3',
+  '#209CEE',
+  '#39A8F2',
+  '#51B4F5',
+  '#6BBFF7',
+  '#84CBFA',
+  '#9FD7FC',
+  '#B9E2FD'
+]
 
 export default {
   name: 'Modal',
@@ -268,7 +280,10 @@ export default {
           </div>`
         }
       },
-      colors: ['#26276F', '#BFC0FF']
+      colors: [
+        chartColors[0],
+        chartColors[1]
+      ]
     },
     trendSeries: [],
     //  Bias Chart
@@ -362,7 +377,10 @@ export default {
           strokeColor: '#FFF',
           strokeWidth: 2
         },
-        colors: ['#26276F', '#BFC0FF'],
+        colors: [
+          chartColors[0],
+          chartColors[1]
+        ],
         labels: [
           'C',
           'RC',
@@ -395,15 +413,14 @@ export default {
       return {
         isCollapsed: this.collapsedArticles
       }
+    },
+    displayViewAllAction() {
+      return this.isMobile && this.articles.length > 2
     }
   },
   watch: {
     dialogState(isVisible) {
-      if (isVisible) {
-        // document.body.style.position = 'fixed'
-        // document.body.style.top = `-${this.scrollPos}px`
-        this.scrollToTop()
-      }
+      this.scrollToTop()
     },
     articles(articles) {
       this.crunchArticleData(articles)
@@ -619,7 +636,7 @@ export default {
       }
     },
     scrollToTop() {
-      // this.$refs.modalBody.scrollTop = 0
+      this.$refs.modalBody.scrollTop = 0
       this.$refs.articlesPanel.scrollTop = 0
       this.$refs.dataPanel.scrollTop = 0
     }
@@ -711,6 +728,7 @@ export default {
     }
     @media #{$small} {
       padding: .5em;
+      overflow: hidden;
     }
   }
 

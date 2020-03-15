@@ -1,0 +1,43 @@
+.c-Button {
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  line-height: 21px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  transition: background-color .2s;
+
+  &__cta{
+    color: $white;
+    background-color: $blue-dark;
+    transition: background-color .2s;
+
+    &:hover {
+      color: $white;
+      background-color: lighten($blue-dark, 10%);
+      transition: background-color .2s;
+    }
+
+    // &:before{
+    //   content: '\2192';
+    //   opacity: 0;
+    //   position: absolute;
+    //   right: 3px;
+    //   top: 53%;
+    //   -webkit-transform: translate(0, -50%);
+    //   transform: translate(0, -50%);
+    //   transition: opacity .2s;
+    // }
+  }
+
+  // &.isPrimary {
+  //   color: $white;
+  //   background-color: $blue-dark;
+
+  //   &:hover {
+  //     background-color: $blue-dark;
+  //     color: $white;
+  //   }
+  // }
+}

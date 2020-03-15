@@ -10,10 +10,7 @@
 
         <div class="section-wrapper">
           <nuxt-link
-            :to="{
-              name: `${dashboardType}-mainCategory`,
-              params: { mainCategory: 'world' }
-            }"
+            :to="{ name: 'index' }"
             class="navbar-item"
           >
             WORLD <Icon :icon="'checkbox-blank-circle'" />

@@ -1,31 +1,7 @@
-.content-area{
-  .header{
-    border-bottom: 1px solid $gray-dark;
+.o-PageHeader{
+  border-bottom: 1px solid $gray-dark;
 
-    h1, h2, h3, h4, h5, h6{
-      font-weight: 600;
-    }
-  }
-  .inner-content{
-    padding: .5em;
-    .container{
-      &.is-empty{
-        justify-content: space-around;
-        .empty-message{
-          width: 100%;
-          text-align: center;
-        }
-      }
-    }
-  }
-  .section-cta{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin: 15px auto;
-  }
-
-  @media #{$medium} {
-    padding-left: 0;
+  h1, h2, h3, h4, h5, h6{
+    font-weight: 600;
   }
 }

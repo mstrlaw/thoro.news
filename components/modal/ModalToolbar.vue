@@ -264,7 +264,8 @@ export default {
     display: flex;
     align-items: center;
     width: 100%;
-    background: $gray-lighter;
+    background-color: $gray-lighter;
+    transition: background-color .2s;
 
     .info,
     a,
@@ -292,7 +293,7 @@ export default {
       display: flex;
     }
     a {
-      color: $primary;
+      color: $blue-dark;
       &.prev {
         .context {
           margin-right: .5em;
@@ -304,7 +305,8 @@ export default {
         }
       }
       &:hover {
-        background: $gray-light;
+        background-color: $gray-light;
+        transition: background-color .2s;
       }
     }
     .info,
@@ -322,13 +324,16 @@ export default {
     height: 3.25rem;
     position: relative;
     width: 3.25rem;
-    background: $gray-dark;
+    background-color: $gray-dark;
     padding: 1.25em;
+    transition: background-color .2s;
+
     &:hover {
-      background: $gray-darker-trans;
+      background-color: $gray-light;
+      transition: background-color .2s;
     }
     span {
-      background-color: $primary;
+      background-color: $blue-dark;
       display: block;
       height: 2px;
       left: calc(50% - 8px);

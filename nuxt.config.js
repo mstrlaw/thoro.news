@@ -1,6 +1,5 @@
 module.exports = {
   mode: 'universal',
-
   /**
     Meta
   **/
@@ -46,20 +45,19 @@ module.exports = {
       }
     ]
   },
-
   /**
     Progress Bar
   **/
   loading: {
-    color: '#383AA7',
+    color: '#209CEE',
     height: '4px'
   },
-
   /**
     Styles
   **/
-  css: ['@/assets/css/app.scss'],
-
+  css: [
+    '@/assets/css/app.scss'
+  ],
   /**
     Plugins
   **/

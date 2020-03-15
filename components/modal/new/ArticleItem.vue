@@ -20,25 +20,15 @@
     <div class="c-ArticleItem__body">
       <div class="c-ArticleHeader">
         <a
-          v-if="isMobile"
           :href="url"
           target="_blank"
-          class="c-ArticleHeader--titleLink"
+          class="c-ArticleHeader__titleLink"
         >
-          <span v-html="articleTitle(article)" />
+          <span
+            class="highlighted link blue"
+            v-html="articleTitle(article)"
+          />
           <Icon :icon="'open-in-new'" />
-        </a>
-        <p
-          v-else
-          class="c-ArticleHeader--title"
-          v-html="articleTitle(article)"
-        />
-        <a
-          v-if="!isMobile"
-          :href="url"
-          class="cta button is-small is-white shadow"
-          target="_blank"
-        >&nbsp;Read&nbsp;<Icon :icon="'open-in-new'" />
         </a>
       </div>
       <div class="c-ArticleDescription">
@@ -271,17 +261,16 @@ export default {
   display: flex;
   justify-content: space-between;
 
-  &--title,
-  &--titleLink {
+  &__titleLink {
     font-size: 1.2em;
     font-weight: bold;
     line-height: 1.1em;
   }
-  &--titleLink {
-    color: darken($blue, 10%);
+  &__titleLink {
+    color: $dark;
     padding-bottom: .5em;
     &:hover {
-      color: $blue;
+      color: darken($blue-dark, 20%);
     }
   }
 }
