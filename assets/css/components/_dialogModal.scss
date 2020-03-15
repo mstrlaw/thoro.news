@@ -1,24 +1,13 @@
-.open-dialog{
-  .content-area{
-    overflow: hidden!important;
-  }
-  nav, .tool-bar{
-    filter: blur(2px);
-    transition: filter .2s;
-  }
-}
-
 .dialog-modal{
   opacity: 0;
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: $dark-trans;
   top: 0;
   right: 0;
-  // padding-left: $dashboard-left-padding-desktop;
-  z-index: -1;
+  background: $dark-trans;
+  width: 100%;
+  height: 100%;
   transition: opacity .5s;
+  z-index: -1;
 
   &.visible{
     opacity: 1;

@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ 'isVisible': dialogState }"
+    v-show="dialogState"
     class="c-Modal"
   >
     <ModalToolbar
@@ -11,7 +11,6 @@
       :sources="sources.length"
       :sentiment="avgSentiment"
     />
-
     <div
       ref="modalBody"
       class="c-ModalBody"
@@ -633,12 +632,11 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  opacity: 0;
   width: 100%;
   height: 100%;
   background: $dark-trans;
   transition: opacity .5s;
-  z-index: -1;
+  z-index: 100;
 
   &.isVisible {
     opacity: 1;

@@ -23,10 +23,10 @@ export default {
     return {
       htmlAttrs: {
         class: `${this.dialogClass}`
+      },
+      bodyAttrs: {
+        class: `has-navbar-fixed-top ${this.dialogClass}`
       }
-      // bodyAttrs: {
-      //   class: `has-navbar-fixed-top ${this.dialogClass}`
-      // }
     }
   },
   computed: {
