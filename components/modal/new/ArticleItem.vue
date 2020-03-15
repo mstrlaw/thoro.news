@@ -22,6 +22,7 @@
         <a
           v-if="isMobile"
           :href="url"
+          target="_blank"
           class="c-ArticleHeader--titleLink"
         >
           <span v-html="articleTitle(article)" />

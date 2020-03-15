@@ -29,6 +29,7 @@ html, body{
 
 body {
   &.open-modal {
-    position: fixed;
+    max-height: 100vh;
+    overflow: hidden;
   }
 }
