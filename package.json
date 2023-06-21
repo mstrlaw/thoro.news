@@ -32,7 +32,7 @@
     "js-cookie": "^2.2.0",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.11",
-    "nuxt": "^2.6.1",
+    "nuxt": "^3.4.3",
     "register-service-worker": "^1.6.2",
     "remove": "^0.1.5",
     "rollbar": "^2.5.5",
